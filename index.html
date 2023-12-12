@@ -3,26 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet" />
+
     <title>Emam Hasan's Portfolio</title>
     <style>
+      @import url("https://fonts.cdnfonts.com/css/harry-potter");
+    </style>
+    <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Harry Potter', sans-serif;
+        
+        /* font-family: Arial, sans-serif; */
         margin: 20px;
         padding: 20px;
-        background-color: #f4f4f4;
+        background-image: url(img/slytherin.jpg);
+        background-size: cover;
+        /* background-position: center;  */
+        background-repeat: repeat;
+        
       }
 
       h1 {
-        color: #333;
+        color: white;
         text-align: center;
       }
 
       h2 {
-        color: #007bff;
+        color:white;
       }
 
       p {
-        color: #555;
+        color: black;
       }
 
       .project-section {
@@ -45,30 +56,44 @@
         margin-top: 20px;
       }
 
-      .profileimagediv{
-        background-image: url(img/profile.jpg);
+      .profileimagediv {
+        background-image: url(img/topcover.jpg);
         background-size: cover; /* You can also use 'contain' or specific dimensions */
         background-position: center; /* Optional: Center the image */
         width: 750px;
         height: 400px;
+        border: 2px solid rgb(244, 236, 236);
+        box-shadow: 5px 5px 5px seagreen; /* Adjust the values as needed */
       }
 
-    
-
-
+      #title {
+        /* background-color: rgb(32, 163, 104); */
+        margin-top: 10%;
+        text-align: left;
+        margin-left: 10%;
+        font-size: 30px;
+        color: black;
+      }
+      #info{
+        /* background-color: azure; */
+        width:20%;
+        margin-left:11%;
+        font-size:13px;
+      }
     </style>
   </head>
   <body>
-   
-
     <div class="profileimagediv">
-        <h1>Emam Hasan's Portfolio</h1>   
-    
-    
+      <h1 id="title">Emam Hasan</h1>
+      <p id="info">the Slytherin Sorcerer, weaving serpentine spells and mastering the art of cunning at Hogwarts! 
+
+      </p>
+
+
     </div>
 
     <section id="education">
-      <h2>Education</h2>
+      <h1>Education</h1>
       <p>
         United International University<br />
         Bachelor of Science in Computer Science and Engineering<br />
@@ -81,7 +106,7 @@
     </section>
 
     <section class="project-section">
-      <h2>Projects</h2>
+      <h1>Projects</h1>
       <h3>Cinephiles | <a href="[GitHub Link]">GitHub Link</a></h3>
       <p>
         Web app for movie enthusiasts with exploration, lists, watch parties,
@@ -173,7 +198,7 @@
         - AtCoder: emam_hasan | Max Rating: 278-9 Kyu | Solved 173+ problems |
         Participated in 36 contests<br />
       </p>
-      <h3>Other Achievements</h3>
+      <h1>Achievements</h1>
       <p>
         - UIU intra University AI Contest Fall 2022 | Certificate Dec 26, 2022:
         Champion<br />
@@ -188,7 +213,7 @@
     </section>
 
     <section class="research-section">
-      <h2>Research</h2>
+      <h1>Research</h1>
       <h3>Journals</h3>
       <p>
         - Toward Lightweight Diabetic Retinopathy Classification: A Knowledge
@@ -207,7 +232,7 @@
     </section>
 
     <section class="skills-section">
-      <h2>Technical Skills and Interests</h2>
+      <h1>Technical Skills and Interests</h1>
       <p>
         - Languages: C, C++, Python, Java, HTML, CSS<br />
         - Frameworks/Developer Tools: Laravel, Git and GitHub, MySQL
@@ -215,9 +240,9 @@
     </section>
 
     <section class="contact-section">
-      <h2>Contact Information</h2>
+      <h1>Contact Information</h1>
       <p>
-        Email: emam.hasan@example.com<br />
+        Email: emamhasan9203@gmail.com<br />
         Phone: +8801863703256<br />
         GitHub: <a href="[GitHub Link]">GitHub Profile</a><br />
         LinkedIn: <a href="[LinkedIn Link]">LinkedIn Profile</a>
