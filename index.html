@@ -14,17 +14,19 @@
         font-family: 'Harry Potter', sans-serif;
        
         /* font-family: Arial, sans-serif; */
-        margin: 20px;
-        padding: 20px;
+        /* margin: 20px;
+        padding: 20px; */
         background-image: url(img/slytherin.jpg);
         background-size: cover;
         /* background-position: center;  */
         background-repeat: repeat;
+        /* border: 2px solid red; */
+        height: 300px;
         
       }
 
       h1 {
-        color: silver;
+        color: white;
         text-align: center;
       }
 
@@ -33,7 +35,7 @@
       }
 
       p {
-        color: black;
+        color:silver;
       }
 
       .project-section {
@@ -61,7 +63,7 @@
         background-size: cover; /* You can also use 'contain' or specific dimensions */
         background-position: center; /* Optional: Center the image */
         width: 100%;
-        height: 400px;
+        height: 293px;
         border: 2px solid rgb(244, 236, 236);
         box-shadow: 5px 5px 5px seagreen; /* Adjust the values as needed */
       }
@@ -86,8 +88,8 @@
         width:20%;
         margin-left:11%;
         font-size:13px;
-        margin-top: 10%;
-        margin-left:39% ;
+     
+         margin-left:39% ; 
         text-align: center;
       }
 
@@ -101,8 +103,10 @@
       audio {
             width: 100%;
             height: 10%;
-            margin: 20px auto;
+            /* margin: 20px auto; */
             display: block;
+            margin-top: 1%;
+
             
         }
 
@@ -119,181 +123,84 @@
     
         }
 
+
+    .topnav {
+      overflow: hidden;
+      background-color: #026502;
+      width: 100%;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+
+    #profilepic {
+      width: 200px;
+      height: px;
+      /* margin-bottom: 20%; */
+      float: right;
+      background-color: #d51d54;
+      cursor: move;
+      margin-top: 7%;
+      margin-right: 2%;
+      border: 2px solid green;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px silver; /* Adjust the values as needed */
+    }
+
     </style>
   </head>
   <body>
+
+
+   <div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="resume.html">My Resume</a>
+  <a href="#">My world</a>
+  <a href="#">Contact</a>
+</div>
+
+
+
     <div class="profileimagediv">
-      <h1 id="title">Emam Hasan</h1>
-      <p id="info" style="color: silver;">the Slytherin Sorcerer, weaving serpentine spells and mastering the art of cunning at Hogwarts! 
-
-      </p>
-      <h1 style="font-size: 10px ;width: 200px;color: rgb(125, 200, 13);" id="bottomtitle">Do what is necessary</h1>
-
-
+      
       <audio id="music" controls>
         <source src="music/Lily's Theme.mp3" type="audio/mp3">
         
     </audio>
+    <img id="profilepic" src="img/mypic.jpg">
+
+      <h1 id="title">Emam Hasan</h1>
+
+      <p id="info" style="color: silver;">the Slytherin Sorcerer, weaving serpentine spells and mastering the art of cunning at Hogwarts! 
+      
+      </p>
+
+      <h1 style="font-size: 10px ;width: 200px;color: rgb(125, 200, 13);" id="bottomtitle">Do what is necessary</h1>
+
+      
+
+
 
     </div>
 
-    <section id="education">
-      <h1>Education</h1>
-      <p>
-        United International University<br />
-        Bachelor of Science in Computer Science and Engineering<br />
-        CGPA: 3.61 (Up to 11th trimester)<br />
-        Merit-based scholarship: 50% - 2 times, 25% - 4 times<br />
-        Relevant Coursework: Data Structures, Algorithms, Software Engineering,
-        Database Management, Artificial Intelligence, Web Programming, Basic
-        Graph Theory, Machine Learning, Bioinformatics
-      </p>
-    </section>
+    
 
-    <section class="project-section">
-      <h1>Projects</h1>
-      <h3>Cinephiles | <a href="https://github.com/foyez-hub/Cinephiles-complete-project">GitHub Link</a></h3>
-      <p>
-        Web app for movie enthusiasts with exploration, lists, watch parties,
-        and a vibrant community.<br />
-        Tools & technologies used: Laravel, PHP, JavaScript, Ajax, MySQL, HTML,
-        CSS<br />
-        Led a dynamic team of 5 developers in successfully delivering the entire
-        project, encompassing features like movie exploration, personal lists,
-        watch parties, friendship features, and the innovative meme contest.<br />
-        Spearheaded the development of the meme contest feature, allowing users
-        to participate in creative competitions by submitting movie-based memes.
-        Implemented a voting system, contributing to increased user
-        engagement.<br />
-        Engineered robust privacy controls for user profiles, enabling
-        customizable settings for who can view personal lists. Innovated
-        solutions to enhance user experience and ensure data security.
-      </p>
-
-      <h3>
-        Library Automation System | <a href="https://github.com/ynnuSunny/Library-Automation-System/tree/Website">GitHub Link</a>
-      </h3>
-      <p>
-        IoT library system: RFID lockers, cloud-stored data, web display,
-        Ultrasonic & Sound Sensors for extra features.<br />
-        Tools & technologies used: JavaScript, Ajax, Arduino Uno, Node Mcu,
-        Firebase, HTML, CSS<br />
-        Engineered a cloud-based library management system leveraging Firebase
-        for seamless data storage.<br />
-        Integrated Sound Sensors for enhanced functionality, enabling real-time
-        monitoring of environmental noise.<br />
-        Designed and implemented a dynamic website to display live data,
-        providing a user-friendly interface for efficient library management.
-      </p>
-
-      <h3>
-        Course Management System | <a href="https://github.com/foyez-hub/DBMS_project">GitHub Link</a>
-      </h3>
-      <p>
-        A website for students to select courses, personalized recommendations,
-        and friend-based course matching.<br />
-        Tools & technologies used: JavaScript, Ajax, Arduino Uno, Node Mcu,
-        Firebase, HTML, CSS<br />
-        Engineered a schedule algorithm optimizing academic planning for
-        students.<br />
-        Implemented a collaborative feature for matching courses with friends,
-        fostering shared learning experiences.
-      </p>
-
-      <h3>
-        Canteen Management System | <a href="https://github.com/foyez-hub/Canteen-Management-System">GitHub Link</a>
-      </h3>
-      <p>
-        This System enables users to browse, select, and purchase food items
-        from three different canteens.<br />
-        Tools & technologies used: Java, JavaFX<br />
-        Developed functionality to allow users to browse, select, and purchase
-        food items from three distinct canteens within the system.<br />
-        Created a dynamic menu display showcasing food items and their
-        corresponding prices, providing users with a clear overview of available
-        options.
-      </p>
-    </section>
-
-    <section class="achievements-section">
-      <h1>Programming Contests</h1>
-      <h3>Achievements</h3>
-      <p>
-        - UIU Coders’ Combat 3.0: Secured 4th place out of 200 participants. |
-        <a href="https://lightoj.com/contest/uiu-coders-combat-3/ranklist">Ranklist</a><br />
-        - 2023 ICPC Asia Dhaka Preliminary Contest: Secured 250th place out of
-        2600 teams | <a href="https://drive.google.com/file/d/1vSIpu7FZJyDt_QXmIfz7iWugJi0lZvRx/view?usp=drive_link"> Certificate </a><br />
-        - 2022 ICPC Asia Dhaka Preliminary Contest: Honorable Mention |
-        <a href="https://drive.google.com/file/d/1QKNUWtAQugm0lac_VQAOW86ND08ioYo6/view?usp=drive_link"> Certificate </a><br />
-        - 2021 ICPC Asia Dhaka Preliminary Contest | <a href="https://drive.google.com/file/d/12dEqMl08D64J2ctRs2uSi4N_XajwLliX/view?usp=drive_link"> Certificate </a><br />
-        - 2020 ICPC Asia Dhaka Preliminary Contest | <a href="https://drive.google.com/file/d/12dEqMl08D64J2ctRs2uSi4N_XajwLliX/view?usp=drive_link"> Certificate </a><br />
-        - Codeforces Round 827 (Div. 4): Secured 2392nd place out of 34321
-        participants<br />
-        - CodeChef Starters 18 Division 3: Secured 119th place out of 7325
-        participants<br />
-      </p>
-      <h3>
-        Online Judges | <a href="https://www.stopstalk.com/user/profile/F_O_Y_E_Z">Stopstalk Profile</a>
-      </h3>
-      <p>
-        - Codechef:  <a href="https://www.codechef.com/users/ehasan302"> ehasan302</a>  | Highest Rating: 1578 | Solved 112 problems |
-        Participated in 27 contests<br />
-        - Codeforces: <a href="https://codeforces.com/profile/F_O_Y_E_Z"> F_O_Y_E_Z</a>  | Max Rating: Pupil, 1229 | Solved 1046 problems
-        | Participated in 181 contests<br />
-        - AtCoder: <a href="https://atcoder.jp/users/emam_hasan">emam_hasan</a> | Max Rating: 278-9 Kyu | Solved 173+ problems |
-        Participated in 36 contests<br />
-      </p>
-      <h1>Achievements</h1>
-      <p>
-        - UIU intra University AI Contest Fall 2022 |  Dec 26, 2022:
-        Champion<br />
-        - Microprocessors and Micro-controllers Lab Category of CSE project
-        Show, Fall 2022 |  Dec 26, 2022 | 2nd Runner-up<br/>
-        - System Analysis and Design Lab Category of CSE project Show, Fall 2022
-        |  Dec 26, 2022 | 3rd Runner-up<br/>
-        - Received 2500 USD research grant from Institute of Advanced Research,
-        Oct 2023 | Toward Lightweight Diabetic Retinopathy Classification:
-        A Knowledge Distillation Approach for Resource-Constrained Settings<br />
-      </p>
-
-    </section>
-
-    <section class="research-section">
-
-      <h1>Research</h1>
-      <h3>Journals</h3>
-      <p>
-        - Toward Lightweight Diabetic Retinopathy Classification: A Knowledge
-        Distillation Approach for Resource-Constrained Settings |
-        <a href="https://www.mdpi.com/2076-3417/13/22/12397">Link</a> | MDPI · Nov 16, 2023
-      </p>
-      <h3>Conferences</h3>
-      <p>
-        - EWasteNet: A Two-Stream Data Efficient Image Transformer Approach for
-        E-Waste Classification| IEEE 8th International Conference on Software
-        Engineering and Computer System | <a href="https://ieeexplore.ieee.org/document/1025632">Link</a> |
-        Sep 26, 2023 - Data Segmentation with Improved K-Means Clustering
-        Algorithm|First Author| On review | 26th International Conference on
-        Computer and Information Technology (ICCIT)
-      </p>
-    </section>
-
-    <section class="skills-section">
-      <h1>Technical Skills and Interests</h1>
-      <p>
-        - Languages: C, C++, Python, Java, HTML, CSS<br />
-        - Frameworks/Developer Tools: Laravel, Git and GitHub, MySQL
-      </p>
-    </section>
-
-    <section class="contact-section">
-      <h1>Contact Information</h1>
-      <p>
-        Email: emamhasan9203@gmail.com<br />
-        Phone: +8801863703256<br />
-        GitHub: <a href="https://github.com/foyez-hub">GitHub Profile</a><br />
-        LinkedIn: <a href="https://www.linkedin.com/in/emam-hasan302/">LinkedIn Profile</a>
-      </p>
-    </section>
+     
   </body>
 </html>
