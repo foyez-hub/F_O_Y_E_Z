@@ -72,15 +72,17 @@
         /* background-color: rgb(32, 163, 104); */
         margin-top: 10%;
         text-align: left;
-        margin-left: 10%;
-        font-size: 30px;
+        margin-left: 8%;
+        font-size: 23px;
         color: black;
       }
       #info{
         /* background-color: azure; */
         width:100%;
-        margin-left:1%;
         font-size:10px;
+        float: left;
+        margin-top:14%;
+        margin-left:2%;
         text-align: center;
       }
 
@@ -137,13 +139,13 @@
 
 
     #profilepic {
-      width: 200px;
+      width: 220px;
       height: 150px;
       /* margin-bottom: 20%; */
       float: right;
       /* background-color: #d51d54; */
       cursor: move;
-      margin-top: 7%;
+      margin-top: 4%;
       margin-right: 2%;
      
     
@@ -164,6 +166,12 @@
 
     }
 
+    #bottomtitle{
+      background-color: aqua;
+      font-size: 12px;
+      
+    }
+
     </style>
   </head>
   <body>
@@ -174,6 +182,8 @@
       <a href="resume.html">My Resume</a>
       <a href="myworld.html">My photographs</a>
       <a href="contact.html">Contact</a>
+      <a href="Projects.html">Projects</a>
+
     </div>
 
 
@@ -184,28 +194,66 @@
         <source src="music/Lily's Theme.mp3" type="audio/mp3">
         
     </audio>
+
     <div id="profilepic">
-    <img id="pic" src="img/wizarding-world-portrait.png">
-    </div>
+      <img id="pic" src="" alt="Profile Picture">
+      <!-- <h1  id="bottomtitle">Do what is necessary</h1> -->
+      <h1 style="color: #6dc822;" id="title">Emam Hasan Foyez</h1>
+
+
+  </div>
 
     <div id="leftcon">
       
-      <h1 style="color: #6dc822;" id="title">Emam Hasan</h1>
+      <!-- <h1 style="color: #6dc822;" id="title">Emam Hasan</h1> -->
 
-      <p id="info" style="color: silver;">the Slytherin Sorcerer, weaving serpentine spells
-         and mastering the art of cunning at Hogwarts! 
+      <p id="info" style="color: silver;">In the mystical tapestry 
+        of my existence,
+        I am a cinematic sorcerer, coding enchanter, 
+        and cunning denizen of Slytherin House, weaving 
+        the threads of life's canvas with the vibrant hues 
+        of art and the profound strokes of science. With a 
+        heart attuned to the harmonies of creativity, I embark
+         on a magical journey where each passion becomes a 
+         spellbinding chapter in the story of me. Welcome to 
+         the enchanting symphony of my multifaceted world, where
+          the magic of movies, code, art, and science
+           converges in the serpentine embrace of Slytherin wisdom. 
       
       </p>
 
     </div>
 
 
-      <!-- <h1  id="bottomtitle">Do what is necessary</h1> -->
     
     </div>
 
     
 
-     
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            // Display the initial image
+            showImage("pic", "img/wizarding-world-portrait.png");
+
+            // Toggle between the two images every 2 seconds
+            setInterval(function () {
+                toggleImage("pic", "img/wizarding-world-portrait.png", "img/mypic.jpg");
+            }, 3000);
+        });
+
+        function showImage(imageId, imageUrl) {
+            var image = document.getElementById(imageId);
+            image.src = imageUrl;
+        }
+
+        function toggleImage(imageId, currentImageUrl, newImageUrl) {
+            var image = document.getElementById(imageId);
+            var nextImageUrl = image.src.endsWith(currentImageUrl) ? newImageUrl : currentImageUrl;
+            showImage(imageId, nextImageUrl);
+        }
+  </script>
+
+
+
   </body>
 </html>
