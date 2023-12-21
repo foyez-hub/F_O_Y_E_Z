@@ -286,16 +286,42 @@
       <div class="signup">
         <h2 class="form-title" id="signup">log in</h2>
         <div class="form-holder">
-          <input id="signinusername" type="text" class="input" placeholder="Username" />
-		  <p id="signusernameWarning" style="text-align: center; font-size: 12px; color: red; display: none">
-			Your username is incorrect
-		  </p>
+          <input
+            id="signinusername"
+            type="text"
+            class="input"
+            placeholder="Username"
+          />
+          <p
+            id="signusernameWarning"
+            style="
+              text-align: center;
+              font-size: 12px;
+              color: red;
+              display: none;
+            "
+          >
+            Your username is incorrect
+          </p>
 
           <!-- <input type="email" class="input" placeholder="Email" /> -->
-          <input id="signinpassword" type="password" class="input" placeholder="Password" />
-		  <p id="password" style="text-align: center; font-size: 12px; color: red; display: none">
-			Your Password is incorrect
-		  </p>
+          <input
+            id="signinpassword"
+            type="password"
+            class="input"
+            placeholder="Password"
+          />
+          <p
+            id="password"
+            style="
+              text-align: center;
+              font-size: 12px;
+              color: red;
+              display: none;
+            "
+          >
+            Your Password is incorrect
+          </p>
         </div>
         <button id="loginbtn" class="submit-btn">Log in</button>
       </div>
@@ -310,9 +336,17 @@
               placeholder="username"
               required
             />
-			<p id="usernameWarning" style="text-align: center; font-size: 12px; color: red; display: none">
-				Username is already taken. Please choose another one.
-			  </p>
+            <p
+              id="usernameWarning"
+              style="
+                text-align: center;
+                font-size: 12px;
+                color: red;
+                display: none;
+              "
+            >
+              Username is already taken. Please choose another one.
+            </p>
             <input
               id="signupuserfullname"
               type="text"
@@ -321,11 +355,8 @@
               required
             />
             <select id="housename" style="color: gray" class="input">
-              <option
-                value="em"
-                style="background-color: white; color: white"
-              >
-                Select a Harry Potter House
+              <option value="em" style="background-color: white; color: white">
+                Select your house
               </option>
               <option
                 value="gryffindor"
@@ -353,9 +384,17 @@
               </option>
             </select>
 
-			<p id="housenameWarning" style="text-align: center; font-size: 12px; color: red; display: none">
-				 Please Select one.
-			  </p>
+            <p
+              id="housenameWarning"
+              style="
+                text-align: center;
+                font-size: 12px;
+                color: red;
+                display: none;
+              "
+            >
+              Please Select one.
+            </p>
             <input
               id="signuppassword"
               type="password"
@@ -363,8 +402,6 @@
               placeholder="Password"
               required
             />
-
-			
           </div>
           <button id="signupbtn" class="submit-btn">Sign up</button>
         </div>
@@ -425,8 +462,6 @@
 
       const app = initializeApp(firebaseConfig);
       const database = getDatabase(app);
-   
-
 
       const signupactionbtn = document.getElementById("signupbtn");
       const signupusername = document.getElementById("signupusername");
@@ -440,8 +475,7 @@
         selectedHouse = houseSelect.value;
       });
 
-
-	  //   Sign up--->>>
+      //   Sign up--->>>
 
       //  save sign up info in firebase
       signupactionbtn.addEventListener("click", (e) => {
@@ -452,37 +486,30 @@
         get(child(dbref, "users/" + signupusername.value))
           .then((snapshot) => {
             if (snapshot.exists()) {
-
               console.log("User data:", snapshot.val());
               console.log("Name:", snapshot.val().name);
               warningMessage.style.display = "block";
-		
-
-
             } else {
               // if User does not exist in the datbase then  save it in the database
               console.log(selectedHouse);
-			  if (selectedHouse === "") {
-			  document.getElementById("housenameWarning").style.display = "block";;
-			  }
-			  else{
-
-              set(ref(database, "users/" + signupusername.value), {
-                name: signupuserfullname.value,
-                housename: selectedHouse,
-                pass: signuppassword.value,
-              })
-                .then(() => {
-               
-				console.log("Data saved successfully!");
-                signupBtn.click();
+              if (selectedHouse === "") {
+                document.getElementById("housenameWarning").style.display =
+                  "block";
+              } else {
+                set(ref(database, "users/" + signupusername.value), {
+                  name: signupuserfullname.value,
+                  housename: selectedHouse,
+                  pass: signuppassword.value,
+                  islogin: 0,
                 })
-                .catch((error) => {
-                  console.log("Failed to save data: " + error.message);
-                });
-
-			}
-
+                  .then(() => {
+                    console.log("Data saved successfully!");
+                    signupBtn.click();
+                  })
+                  .catch((error) => {
+                    console.log("Failed to save data: " + error.message);
+                  });
+              }
             }
           })
           .catch((error) => {
@@ -490,52 +517,52 @@
           });
       });
 
+      //   login--->>>
 
-
-
-
-	//   login--->>>
-
-	const signinusername = document.getElementById("signinusername");
+      const signinusername = document.getElementById("signinusername");
       const signinpassword = document.getElementById("signinpassword");
       const signinactionbtn = document.getElementById("loginbtn");
-	 //  save sign up info in firebase
-	 signinactionbtn.addEventListener("click", (e) => {
+      //  save sign up info in firebase
+      signinactionbtn.addEventListener("click", (e) => {
         //   before save to database check is username is avalivale
         const dbref = ref(database);
-        
 
         get(child(dbref, "users/" + signinusername.value))
           .then((snapshot) => {
             if (snapshot.exists()) {
+              //   console.log("User data:", snapshot.val());
+              //   console.log("Name:", snapshot.val().name +'  '+ signinusername );
+              //   console.log("pass:", snapshot.val().pass +'  '+ signinpassword );
 
-            //   console.log("User data:", snapshot.val());
-            //   console.log("Name:", snapshot.val().name +'  '+ signinusername );
-			//   console.log("pass:", snapshot.val().pass +'  '+ signinpassword );
-              
-			  
+              if (snapshot.val().pass === signinpassword.value) {
+                console.log("login yes");
 
-			
-			  if(snapshot.val().pass===signinpassword.value){
-				console.log("login yes");
-				window.location.href = "index.html";
+                set(ref(database, "users/" + signinusername.value), {
+                  name: snapshot.val().name,
+                  housename: snapshot.val().housename,
+                  pass: signinpassword.value,
+                  islogin: 1,
+                })
+                  .then(() => {
+                    console.log("Data saved successfully!");
+                    // Assuming this code is executed after a successful login
+                    // var username = "exampleUser";
+                    localStorage.setItem("loggedInUser", signinusername.value);
+                    localStorage.setItem("fullname", snapshot.val().name);
+                    localStorage.setItem("housename", snapshot.val().housename);
 
-				
-			  }
-			  else{
-				console.log("login no");
-				document.getElementById("password").style.display = "block";
-
-			  }
-		
-
-
+                    window.location.href = "index.html";
+                  })
+                  .catch((error) => {
+                    console.log("Failed to save data: " + error.message);
+                  });
+              } else {
+                console.log("login no");
+                document.getElementById("password").style.display = "block";
+              }
             } else {
-              
-			  document.getElementById("signusernameWarning").style.display = "block";
-
-
-
+              document.getElementById("signusernameWarning").style.display =
+                "block";
             }
           })
           .catch((error) => {
@@ -543,7 +570,7 @@
           });
       });
 
-
+      // console.log(window.myGlobalusername+'-> global');
     </script>
   </body>
 </html>

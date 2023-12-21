@@ -21,7 +21,8 @@
         /* background-position: center;  */
         background-repeat: repeat;
         /* border: 2px solid red; */
-        height: 300px;
+        height: 95vh;
+        font-size: 18px;
       }
 
       .container {
@@ -132,6 +133,24 @@
 
 
       }
+      @media screen and (max-width: 900px) {
+        body {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+      }
+
+      /* Adjust font size for smaller screens */
+      @media screen and (max-width: 480px) {
+        body {
+          font-size: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -167,7 +186,8 @@
 
     </div>
 
-    
+    <script src="script/logout.js"></script>
+
     <script>
       // Define an array of image sources and corresponding information
       const images = [
@@ -192,6 +212,7 @@
     </script>
      <script src="script/topnav.js"></script>
 
+     <script src="script/islogin.js"></script>
 
   </body>
 </html>

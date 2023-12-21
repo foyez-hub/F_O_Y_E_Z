@@ -14,21 +14,19 @@
         font-family: "Harry Potter", sans-serif;
         /* min-height: 95vh; */
         height: 95vh;
+        font-size: 18px;
 
         /* font-family: Arial, sans-serif; */
         /* margin: 20px;
         padding: 20px; */
-        
+
         background-image: url(img/slytherin.jpg);
         background-size: cover;
         /* background-position: center;  */
         /* background-repeat: repeat; */
         /* border: 2px solid red; */
         /* height: 700px; */
-        font-size: 18px;
       }
-
-      
 
       h1 {
         color: white;
@@ -72,8 +70,8 @@
         margin-left: 10%;
         /* margin-top: 2%; */
         /* border: 2px solid rgb(145, 16, 16); */
-        box-shadow: 5px 10px 5px 3px seagreen; /* Adjust the values as needed */
-      }
+        box-shadow: 0 4px 8px greenyellow;
+      border-radius: 10px;       }
 
       #title {
         /* background-color: rgb(32, 163, 104); */
@@ -183,11 +181,11 @@
         body {
           font-size: 10px;
         }
-       
       }
     </style>
   </head>
   <body>
+
     <div id="topnav-container"></div>
 
     <div class="profileimagediv">
@@ -228,11 +226,16 @@
       </div>
     </div>
 
+    <script src="script/logout.js"></script>
+
     <script>
+
+      
+
       document.addEventListener("DOMContentLoaded", function () {
         // Display the initial image
         showImage("pic", "img/wizarding-world-portrait.png");
-
+        
         // Toggle between the two images every 2 seconds
         setInterval(function () {
           toggleImage(
@@ -258,5 +261,9 @@
     </script>
 
     <script src="script/topnav.js"></script>
+
+   
+    <script src="script/islogin.js"></script>
   </body>
+
 </html>
