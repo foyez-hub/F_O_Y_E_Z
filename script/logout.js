@@ -7,5 +7,8 @@ function logout() {
       document.getElementById("topnavlogout").style.display = "none";
       document.getElementById("topnavlogin").style.display = "block";
       document.getElementById("topnavusername").style.display = "none";
+      document.getElementById("Profilebtn").style.display = "none";
+      window.location.href = "index.html";
+
 
   }

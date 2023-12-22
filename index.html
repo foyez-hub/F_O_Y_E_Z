@@ -62,29 +62,33 @@
       }
 
       .profileimagediv {
-        background-image: url(img/topcover.jpg);
+
+        /* background-image: url(img/topcover.jpg); */
+        background-color: #026502;
         background-size: cover; /* You can also use 'contain' or specific dimensions */
         background-position: center; /* Optional: Center the image */
         width: 80%;
-        height: 530px;
+        height: 80%;
         margin-left: 10%;
+        margin-top:2%;
         /* margin-top: 2%; */
         /* border: 2px solid rgb(145, 16, 16); */
         box-shadow: 0 4px 8px greenyellow;
-      border-radius: 10px;       }
+      border-radius: 10px;  
+    
+    }
 
       #title {
         /* background-color: rgb(32, 163, 104); */
         width: 100%;
-        margin-top: 10%;
+        margin-top: 6%;
         text-align: left;
-        margin-left: 8%;
-        font-size: 23px;
+        margin-left: 6%;
         color: black;
       }
       #info {
         /* background-color: azure; */
-        width: 100%;
+        width: 90%;
         height: 90%;
         /* font-size:20px; */
         float: left;
@@ -140,8 +144,8 @@
       /* right side my pofile picture and name containar  */
 
       #profilepic {
-        width: 30%;
-        /* height: 400px; */
+        width: 45%;
+        /* height: 80%; */
         /* margin-bottom: 20%; */
         float: right;
         /* background-color: #d51d54; */
@@ -153,18 +157,79 @@
       /* right side my pofile picture  */
       #pic {
         width: 100%;
-        height: 220px;
+        height: 55%;
         border: 2px solid green;
         border-radius: 10px;
         box-shadow: 2px 2px 2px silver; /* Adjust the values as needed */
       }
+
       #leftcon {
         /* border: 2px solid red; */
         width: 40%;
         height: 80%;
       }
 
-      @media screen and (max-width: 900px) {
+
+
+      /* snake */
+      .snake {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  /* border: 2px solid red; */
+  margin-left: -2%;
+  margin-top: -5%;
+  z-index: 2;
+  /* border-radius: 50%; */
+  background-image: url('img/snake-head.png');
+  background-size: 70px 70px; 
+  background-repeat: no-repeat; 
+}
+
+
+      .tail {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        border-radius: 50%;
+        /* background-image: url('img/snake-skin.jpg');
+  background-size: 20px 20px; 
+  background-repeat: no-repeat;  */
+        background: linear-gradient(
+          135deg,
+          #006400 0% 20%,
+          #008000 20% 40%,
+          #006400 40% 60%,
+          #008000 60% 80%,
+          #006400 80% 100%
+        ); 
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); 
+        transform-origin: center;
+        transition: transform 0.5s ease;
+      }
+
+      .rotate {
+        transform: rotate(180deg);
+      }
+
+.snakediv{
+
+  width: 100%;
+  height:650px;
+  /* border: 3px solid red; */
+
+}
+
+
+      /* snake end */
+
+      @media screen and (max-width: 1090px) {
+        body {
+          font-size: 16px;
+        }
+      }
+
+      @media screen and (max-width: 990px) {
         body {
           font-size: 14px;
         }
@@ -172,7 +237,7 @@
 
       @media screen and (max-width: 768px) {
         body {
-          font-size: 14px;
+          font-size: 12px;
         }
       }
 
@@ -182,13 +247,26 @@
           font-size: 10px;
         }
       }
+      @media screen and (max-width: 350px) {
+        body {
+          font-size: 8px;
+        }
+      }
     </style>
   </head>
   <body>
 
     <div id="topnav-container"></div>
+    
+    <div class="snakediv">
+
+          <div class="snake head"></div>
+
 
     <div class="profileimagediv">
+
+    
+
       <audio id="music" controls>
         <source src="music/Lily's Theme.mp3" type="audio/mp3" />
       </audio>
@@ -199,7 +277,7 @@
         <h1
           style="
             margin-left: 2%;
-            font-size: 30px;
+           
             text-align: center;
             color: #6dc822;
           "
@@ -213,6 +291,7 @@
         <!-- <h1 style="color: #6dc822;" id="title">Emam Hasan</h1> -->
 
         <p id="info" style="color: silver">
+
           In the mystical tapestry of my existence, I am a cinematic sorcerer,
           coding enchanter, and cunning denizen of Slytherin House, weaving the
           threads of life's canvas with the vibrant hues of art and the profound
@@ -226,8 +305,159 @@
       </div>
     </div>
 
-    <script src="script/logout.js"></script>
 
+  </div>
+
+    <!-- <div class="container"> -->
+      <!-- <div class="snake head"></div> -->
+    <!-- </div> -->
+
+    <script src="script/logout.js"></script>
+    <script>
+function onPhone() {
+  // Logic for phone screen
+  console.log("On phone screen");
+
+  // Disable or hide the snake head element
+  var snakeHead = document.querySelector('.snake.head');
+  if (snakeHead) {
+    snakeHead.style.display = 'none';
+    // or you can remove the element from the DOM: snakeHead.remove();
+  }
+
+  // Your phone-specific code here
+}
+
+function onLaptop() {
+
+  // Logic for laptop screen
+  console.log("On laptop screen");
+
+  // Enable or show the snake head element
+  var snakeHead = document.querySelector('.snake.head');
+  if (snakeHead) {
+    snakeHead.style.display = 'block';
+    // or you can re-add the element to the DOM if it was previously removed
+    // document.body.appendChild(snakeHead);
+  }
+
+
+
+
+  var cnt = 0;
+      document.addEventListener("DOMContentLoaded", function () {
+        const snake = document.querySelector(".snake");
+        const container = document.querySelector(".snakediv");
+        var dif = 70;
+        let posX = dif;
+        let posY = dif;
+        let direction = "right";
+        let tailBlocks = [];
+
+        function createTailBlock() {
+          const tailBlock = document.createElement("div");
+          tailBlock.classList.add("tail");
+          cnt++;
+          // console.log(cnt);
+
+          container.appendChild(tailBlock);
+          tailBlocks.push(tailBlock);
+        }
+
+        function moveSnake() {
+          switch (direction) {
+            case "right":
+              posX += 1;
+              break;
+            case "down":
+              posY += 1;
+              break;
+            case "left":
+              posX -= 1;
+              break;
+            case "up":
+              posY -= 1;
+              break;
+          }
+
+          // Update the position of the snake
+          snake.style.left = posX + "px";
+          snake.style.top = posY + "px";
+          const headElement = document.querySelector(".head");
+          // console.log(container.offsetHeight+' '+container.offsetWidth);
+          // Check for container boundaries
+          if (posX >= container.offsetWidth - dif && posY == dif) {
+            direction = "down";
+            headElement.style.transform = "rotate(0deg)";
+            // console.log("rotdown");
+          } else if (
+            posY >= container.offsetHeight - dif &&
+            posX == container.offsetWidth - dif
+          ) {
+            direction = "left";
+            headElement.style.transform = "rotate(90deg)";
+          
+          } else if (posY >= container.offsetHeight - dif && posX == dif) {
+            direction = "up";
+            headElement.style.transform = "rotate(180deg)";
+            // console.log("rotup");
+          } else if (posY == dif && posX == dif) {
+            direction = "right";
+            headElement.style.transform = "rotate(0deg)";
+            // console.log("rotright");
+          }
+
+          // Create a new tail block periodically
+          if (posX % 2 === 0 && posY % 2 === 0 && cnt <= 900) {
+            createTailBlock();
+          }
+
+          // Update the position of the tail blocks
+          for (let i = tailBlocks.length - 1; i > 0; i--) {
+            const prevX = parseInt(tailBlocks[i - 1].style.left, 10);
+            const prevY = parseInt(tailBlocks[i - 1].style.top, 10);
+            tailBlocks[i].style.left = prevX + "px";
+            tailBlocks[i].style.top = prevY + "px";
+          }
+
+          if (tailBlocks.length > 0) {
+            const firstTailBlock = tailBlocks[0];
+            firstTailBlock.style.left = posX + "px";
+            firstTailBlock.style.top = posY + "px";
+          }
+
+          requestAnimationFrame(moveSnake);
+        }
+
+        createTailBlock(); // Initial tail block
+        moveSnake();
+      });
+
+  // Your laptop-specific code here
+}
+
+function checkScreenSize() {
+  // Get the screen width
+  var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  // Choose a threshold value based on your needs (e.g., 600 pixels)
+  var threshold = 850;
+
+  // Execute the appropriate function based on screen width
+  if (screenWidth <= threshold) {
+    onPhone();
+  } else {
+    onLaptop();
+  }
+}
+
+// Call the function initially
+checkScreenSize();
+
+// Attach the function to the window resize event to update when the screen size changes
+window.addEventListener('resize', checkScreenSize);
+
+</script>
     <script>
 
       
@@ -264,6 +494,13 @@
 
    
     <script src="script/islogin.js"></script>
+
+
+
+    <script>
+    
+    </script>
+
   </body>
 
 </html>
