@@ -86,9 +86,9 @@
         /* background-size: cover; */
         background-size: 98% 100%; /* Set your desired width and height */
 
-        width: 55%;
+        width: 50%;
         height: 80%;
-        margin-left: 22%;
+        margin-left: 25%;
         border-radius: 5px;
         padding: 10px;
         margin-top: 3%;
@@ -97,9 +97,9 @@
       }
 
       .contact-section {
-        background-color: transparent;
-        height: 40%;
-        /* opacity: 10%; */
+        color: #ffd700;
+        background-color: #000000;
+        /* opacity: 40%; */
         width: 100%;
         /* font-size: 20px; */
         /* border: 2px solid greenyellow; */
@@ -107,96 +107,242 @@
         text-align: center;
       }
 
-      @media screen and (max-width: 900px) {
+      /* new profile css */
+
+      ::selection {
+        color: #fff;
+        background: #1cc7d0;
+      }
+      .wrapper {
+        height: 350px;
+        width: 320px;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        margin-left: 30%;
+        margin-top: 2%;
+      }
+      .wrapper .card {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        background: #fff;
+        border-radius: 10px;
+        transform: translateY(0deg);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      }
+      .wrapper:hover > .front-face {
+        transform: rotateY(-180deg);
+      }
+      .wrapper .card img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .wrapper .back-face {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        transform: rotateY(180deg);
+      }
+      .wrapper:hover > .back-face {
+        transform: rotateY(0deg);
+      }
+      .wrapper .back-face img {
+        height: 150px;
+        width: 150px;
+        padding: 5px;
+        border-radius: 50%;
+        background: linear-gradient(375deg, #1cc7d0, #2ede98);
+      }
+      .wrapper .back-face .info {
+        text-align: center;
+      }
+      .back-face .info .title {
+        font-size: 120%;
+        font-weight: 500;
+      }
+      .back-face ul {
+        display: flex;
+      }
+      .back-face ul a {
+        display: block;
+        height: 40px;
+        width: 40px;
+        color: #fff;
+        text-align: center;
+        margin: 0 5px;
+        line-height: 38px;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        background: linear-gradient(375deg, #1cc7d0, #2ede98);
+        transition: all 0.5s ease;
+      }
+      .back-face ul a:hover {
+        color: #1cc7d0;
+        border-color: #1cc7d0;
+        background: linear-gradient(375deg, transparent, transparent);
+      }
+
+      /* new profile html */
+
+      @media screen and (max-width: 1090px) {
         body {
           font-size: 14px;
         }
       }
 
+      @media screen and (max-width: 990px) {
+        body {
+          font-size: 13px;
+        }
+      }
+
       @media screen and (max-width: 768px) {
         body {
-          font-size: 14px;
+          font-size: 10px;
         }
       }
 
       /* Adjust font size for smaller screens */
       @media screen and (max-width: 480px) {
         body {
-          font-size: 10px;
+          font-size: 7px;
         }
       }
-     
+      @media screen and (max-width: 350px) {
+        body {
+          font-size: 6px;
+        }
+      }
+    </style>
+    <style>
+      #bio {
+        margin-top: 20px;
+        line-height: 1.5; /* Add some line height for better readability */
+      }
     </style>
   </head>
   <body>
     <div id="topnav-container"></div>
 
-    <div class="contactmiddiv">
-      <h1 style="text-align: center; color: white">Profile</h1>
-
-      <section class="contact-section">
-        <div>
-          <label
-            style="color: white; display: inline-block; margin-bottom: 10px"
-            >Full name
-            ------------------------------------------------------------------------------------------------</label
-          >
-          <h5
-            id="profilename"
-            style="color: white; display: inline-block; margin-left: 10px"
-          ></h5>
+    <div class="wrapper">
+      <div class="card front-face">
+        <img src="img/gryffindor.gif" />
+      </div>
+      <div class="card back-face">
+        <img style="width:50px;height: 50px; ;" src="img/gryffindor.gif" />
+        <div class="info">
+          <div id="profileusername" class="title"></div>
+          <p id="bio">User interface designer and <br />front-end developer</p>
         </div>
-
-        <div>
-          <label
-            style="color: white; display: inline-block; margin-bottom: 10px"
-            >User name
-            ------------------------------------------------------------------------------------------------</label
-          >
-          <h5
-            id="profileusername"
-            style="color: white; display: inline-block; margin-left: 10px"
-          >
-            User name
-          </h5>
-        </div>
-
-        <div>
-          <label
-            style="color: white; display: inline-block; margin-bottom: 10px"
-            >House name
-            ------------------------------------------------------------------------------------------------</label
-          >
-          <h5
-            id="profilehousename"
-            style="color: white; display: inline-block; margin-left: 10px"
-          >
-            House name
-          </h5>
-        </div>
-      </section>
+        <ul style="margin-left: -15%;" >
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        
+        </ul>
+      </div>
     </div>
 
     <script src="script/logout.js"></script>
     <script>
       function setprofile() {
-        var contactMidDiv = document.querySelector(".contactmiddiv");
+        var contactMidDiv = document.querySelector(".frontside");
 
-        document.getElementById("profileusername").innerHTML =
-          localStorage.getItem("loggedInUser");
-        document.getElementById("profilename").innerHTML =
-          localStorage.getItem("fullname");
-         
-        document.getElementById("profilehousename").innerHTML =
-          localStorage.getItem("housename");
-        if (contactMidDiv) {
-         
-            contactMidDiv.style.backgroundImage = "url('img/" + localStorage.getItem("housename") + ".gif')";
+        // document.getElementById("profileusername").innerHTML =
+        //   localStorage.getItem("loggedInUser");
+        fullnameprofile= document.getElementById("profileusername");
+          fullnameprofile.innerHTML=localStorage.getItem("fullname");
+
+        var cardElements = document.getElementsByClassName("card front-face");
+
+        // Check if there's at least one element with the specified class
+        if (cardElements.length > 0) {
+          // Get the first element (assuming there's only one with this class)
+          var cardElement = cardElements[0];
+
+          // Get the image element within the selected div
+          var imageElement = cardElement.querySelector("img");
+          var housename = localStorage.getItem("housename");
+
+          // Change the src attribute to the new image URL
+          imageElement.src = "img/" + housename + ".gif";
+        } else {
+          console.error("No element found with the specified class.");
+        }
+
+        var name = localStorage.getItem("fullname");
+        var username = localStorage.getItem("loggedInUser");
+
+        var bio = "";
+        // console.log(housename);
+        var houseColor = ""; // Define a variable for the main house color
+
+        var nameColor = "";
+
+        switch (housename) {
+          case "gryffindor":
+            nameColor = "#ffd700"; // Second color (e.g., Yellow)
+            bio = `<span class="gryffindor" style="color: ${nameColor};">Courageous ${name}</span>, also known as ${username}, proudly belongs to Gryffindor! 🦁 Gryffindor is known for its bravery, courage, and chivalry. The house values daring and nerve, and its members are often known for their willingness to stand up for what is right.`;
+            break;
+          case "hufflepuff":
+            nameColor = "#000000"; // Second color (e.g., Black)
+            bio = `<span class="hufflepuff" style="color: ${nameColor};">Loyal ${name}</span>, also known as ${username}, is a valued member of Hufflepuff! 🦡 Hufflepuff is known for its dedication, loyalty, and a strong sense of fair play. Its members are often hardworking and value friendship and inclusivity.`;
+            break;
+          case "ravenclaw":
+            nameColor = "#CD7F32"; // Second color (e.g., Silver)
+            bio = `<span class="ravenclaw" style="color: ${nameColor};">Wise ${name}</span>, also known as ${username}, is a brilliant mind in Ravenclaw! 🦅 Ravenclaw values intelligence, creativity, and learning. Its members are known for their wisdom and love of knowledge. The house promotes individuality and independent thinking.`;
+            break;
+          case "slytherin":
+            nameColor = "#a0a0a0"; // Second color (e.g., Silver)
+            bio = `<span class="slytherin" style="color: ${nameColor};">Ambitious ${name}</span>, also known as ${username}, thrives in the cunning Slytherin house! 🐍 Slytherin is known for its ambition, resourcefulness, and cunning nature. Its members are often determined and strive for success, using any means necessary.`;
+            break;
+          default:
+            bio = `Hello ${name}, also known as ${username}! Welcome to the wizarding world!`;
+        }
+
+        document.getElementById("bio").innerHTML = bio;
+
+        var element = document.getElementsByClassName("card back-face")[0];
+
+        switch (housename) {
+          case "gryffindor":
+            element.style.background =
+              "linear-gradient(to right, #d90000, #ffd700)";
+            element.style.color = "#fff";
+            fullnameprofile.style.color='#d90000';
+
+            break;
+          case "hufflepuff":
+            element.style.background =
+              "linear-gradient(to right, #ffd700, #000000)";
+            element.style.color = "#fff";
+            fullnameprofile.style.color='#ffd700';
+
+            break;
+          case "ravenclaw":
+            element.style.background =
+              "linear-gradient(to right, #222f5b, #949494)";
+            element.style.color = "#fff";
+            fullnameprofile.style.color='#222f5b';
+
+            break;
+          case "slytherin":
+            element.style.background =
+              "linear-gradient(to right, #1a472a, #a0a0a0)";
+            element.style.color = "#fff";
+            fullnameprofile.style.color='#1a472a';
+            break;
         }
       }
 
       setprofile();
-      
     </script>
     <script src="script/islogin.js"></script>
 
