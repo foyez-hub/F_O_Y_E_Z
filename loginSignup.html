@@ -29,7 +29,7 @@
 
         border-radius: 15px;
         height: 600px;
-        width: 40%;
+        width: 45%;
         position: relative;
         overflow: hidden;
 
@@ -289,6 +289,25 @@
   <body>
     <div class="form-structor">
       <div class="signup">
+        <a style="margin-top:-30%;float: left;
+        
+        margin-left:-20% ;
+        color: white;
+        border-radius: 4px;
+        border: 2px solid green;
+        background-color: transparent;
+        box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow, 0 0 30px greenyellow;
+
+        "
+        
+         href="index.html">Home</a>
+
+
+
+
+
+
+
         <img style="margin-left: 35%;margin-top:-8% ; width:30%;" src="img/login-logo.png"></img>
         <h2 class="form-title" id="signup">log in</h2>
         <div class="form-holder">
@@ -334,6 +353,8 @@
       <div class="login slide-up">
         <div class="center">
           <h2 class="form-title" id="login">Sign up</h2>
+          <!-- <h2 class="form-title" id="login">Home</h2> -->
+
           <div class="form-holder">
             <input
               id="signupusername"
@@ -410,9 +431,51 @@
             />
           </div>
           <button id="signupbtn" class="submit-btn">Sign up</button>
+          
         </div>
       </div>
     </div>
+
+  <script>
+      var formStructor = document.querySelector('.form-structor');
+
+    function onPhone() {
+      // Logic for phone screen
+      console.log("On phone screen");
+    if (formStructor) {
+      formStructor.style.width ='85%';
+    }
+
+    }
+    
+    function onLaptop() {
+      // Logic for laptop screen
+      console.log("On laptop screen");
+      if (formStructor) {
+      formStructor.style.width ='30%';
+    }    }
+    
+    function checkScreenSize() {
+      // Get the screen width
+      var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    
+      // Choose a threshold value based on your needs (e.g., 600 pixels)
+      var threshold = 700;
+    
+      // Execute the appropriate function based on screen width
+      if (screenWidth <= threshold) {
+        onPhone();
+      } else {
+        onLaptop();
+      }
+    }
+    
+    // Call the function initially
+    checkScreenSize();
+    
+    // Attach the function to the window resize event to update when the screen size changes
+    window.addEventListener('resize', checkScreenSize);
+  </script>    
 
     <script>
       console.clear();

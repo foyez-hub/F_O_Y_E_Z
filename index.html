@@ -145,7 +145,7 @@
 
       #profilepic {
         width: 45%;
-        /* height: 80%; */
+        height: 20%;
         /* margin-bottom: 20%; */
         float: right;
         /* background-color: #d51d54; */
@@ -157,7 +157,7 @@
       /* right side my pofile picture  */
       #pic {
         width: 100%;
-        height: 55%;
+        height: 50%;
         border: 2px solid green;
         border-radius: 10px;
         box-shadow: 2px 2px 2px silver; /* Adjust the values as needed */
@@ -192,9 +192,7 @@
         height: 25px;
         position: absolute;
         border-radius: 50%;
-        /* background-image: url('img/snake-skin.jpg');
-  background-size: 20px 20px; 
-  background-repeat: no-repeat;  */
+      
         background: linear-gradient(
           135deg,
           #006400 0% 20%,
@@ -308,18 +306,32 @@
 
   </div>
 
-    <!-- <div class="container"> -->
-      <!-- <div class="snake head"></div> -->
-    <!-- </div> -->
+ 
 
     <script src="script/logout.js"></script>
     <script>
+
+function isChromeDesktopModeOnPhone() {
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Mobile/.test(navigator.userAgent);
+  var isWideScreen = window.innerWidth >= 1024; // Adjust the threshold as needed
+
+  return isChrome && isWideScreen;
+}
+
+
+
+
+
+
+var profilepicwidth=document.querySelector('#pic');
+
 function onPhone() {
   // Logic for phone screen
   console.log("On phone screen");
 
   // Disable or hide the snake head element
   var snakeHead = document.querySelector('.snake.head');
+ profilepicwidth.style.height='20%';
   if (snakeHead) {
     snakeHead.style.display = 'none';
     // or you can remove the element from the DOM: snakeHead.remove();
@@ -332,13 +344,13 @@ function onLaptop() {
 
   // Logic for laptop screen
   console.log("On laptop screen");
-
+  var snakeHead = document.querySelector('.snake.head');
+ profilepicwidth.style.height='50%';
   // Enable or show the snake head element
   var snakeHead = document.querySelector('.snake.head');
   if (snakeHead) {
     snakeHead.style.display = 'block';
-    // or you can re-add the element to the DOM if it was previously removed
-    // document.body.appendChild(snakeHead);
+   
   }
 
 
@@ -444,7 +456,7 @@ function checkScreenSize() {
   var threshold = 850;
 
   // Execute the appropriate function based on screen width
-  if (screenWidth <= threshold) {
+  if (screenWidth <= threshold || isChromeDesktopModeOnPhone()) {
     onPhone();
   } else {
     onLaptop();
