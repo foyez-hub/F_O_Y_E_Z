@@ -22,5 +22,6 @@
 
         }
       }
+    
 
-      setTimeout(islogin, 100);
+      setTimeout(islogin, 1000);
