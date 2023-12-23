@@ -28,10 +28,12 @@
         background-color: #222;
 
         border-radius: 15px;
-        height: 600px;
+        height: 450px;
         width: 45%;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 0 5px greenyellow, 0 0 5px greenyellow, 0 0 10px greenyellow;
+
 
         &::after {
           content: "";
@@ -284,31 +286,52 @@
           }
         }
       }
+      @media screen and (max-width: 1090px) {
+        body {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 990px) {
+        body {
+          font-size: 13px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        body {
+          font-size: 10px;
+        }
+      }
+
+      /* Adjust font size for smaller screens */
+      @media screen and (max-width: 480px) {
+        body {
+          font-size: 7px;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        body {
+          font-size: 6px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="form-structor">
       <div class="signup">
-        <a style="margin-top:-30%;float: left;
+        <a href="index.html">
+         <img style="margin-left: 35%;margin-top:-8% ; width:30%;" src="img/login-logo.png"></img>
         
-        margin-left:-20% ;
-        color: white;
-        border-radius: 4px;
-        border: 2px solid green;
-        background-color: transparent;
-        box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow, 0 0 30px greenyellow;
+        </a>
 
-        "
+
+
+
+
+
+
         
-         href="index.html">Home</a>
-
-
-
-
-
-
-
-        <img style="margin-left: 35%;margin-top:-8% ; width:30%;" src="img/login-logo.png"></img>
         <h2 class="form-title" id="signup">log in</h2>
         <div class="form-holder">
           <input
