@@ -241,6 +241,14 @@
 
       }
 
+      #youtube{
+        border: 2px solid yellow;
+        
+        width:80%;
+
+      }
+
+
       /* pop up end */
 
       @media screen and (max-width: 1090px) {
@@ -287,6 +295,7 @@
         <span class="close-btn" onclick="closeModal('patronus-modal')"
           >&times;</span
         >
+
         <img style=" border: 2px solid white ;
         box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
 
@@ -375,6 +384,60 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
       </div>
     </div>
 
+
+
+    <div id="patronus-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('patronus-modal')"
+          >&times;</span
+        >
+        
+        <img style=" border: 2px solid white ;
+        box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/newpatronasbtn.png">
+        <h3>Select your Patronus</h3>
+        <button onclick="selectPatronus('🦌 Doe')">🦌 Doe</button>
+        <button onclick="selectPatronus('🦌 Stag')">🦌 Stag</button>
+        <button onclick="selectPatronus('🦦 Otter')">🦦 Otter</button>
+        <button onclick="selectPatronus('🦊 Fox')">🦊 Fox</button>
+        <button onclick="selectPatronus('🦢 Swan')">🦢 Swan</button>
+        <button onclick="selectPatronus('🐰 Hare')">🐰 Hare</button>
+        <button onclick="selectPatronus('🔥 Phoenix')">🔥 Phoenix</button>
+        <button onclick="selectPatronus('🐬 Dolphin')">🐬 Dolphin</button>
+        <button onclick="selectPatronus('🐎 Black Stallion')">
+          🐎 Black Stallion
+        </button>
+        <button onclick="selectPatronus('🦉 Snowy Owl')">🦉 Snowy Owl</button>
+        <button onclick="selectPatronus('🦔  Hedgehog')">🦔 Hedgehog</button>
+        <button onclick="selectPatronus('🐘 Elephant')">🐘 Elephant</button>
+        <!-- Add more Patronus options as needed -->
+      </div>
+    </div>
+
+
+
+
+    <div id="room-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('room-modal')"
+          >&times;</span
+        >
+        
+        <!-- <img style=" border: 2px solid white ;
+        box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/room.png"> -->
+        
+
+        <iframe  id="youtube"   src="https://www.youtube.com/embed/xAHdHWOZu_4" frameborder="0" allowfullscreen></iframe>
+
+      </div>
+    </div>
+
+  
+    
+
     <!-- pop up end -->
 
     <div id="topnav-container"></div>
@@ -402,7 +465,7 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
           </p>
         </div>
 
-        <ul  id="buttonContainer"  style="margin-left: -15%">
+        <ul  id="buttonContainer" >
      
 
             <img style=" border: 2px solid white ;
@@ -416,6 +479,12 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
                   box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
 
           height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/newpatronasbtn.png">
+<img style=" border: 2px solid white ;
+box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="openModal('room-modal')" src="img/room.png">
+
+
            <img style=" border: 2px solid white ;
            box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
 
@@ -434,6 +503,11 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
         // Your modal opening logic here
         console.log(`Opening ${modalId}`);
       }
+
+      function setYouTubeVideo(videoId) {
+    const youtubeIframe = document.getElementById('youtube');
+    youtubeIframe.src = `https://www.youtube.com/embed/${videoId}`;
+  }
     
       function captureImage() {
         const elementToCapture = document.getElementById('backpage');
@@ -525,11 +599,18 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
       function onPhone() {
         profilewrapper.style.width = "85%";
         profilewrapper.style.height = "380px";
+        document.getElementById('buttonContainer').style.marginLeft='-40%'
+        document.getElementById('youtube').style.width='100%';
+        document.getElementById('youtube').style.height='200';
 
         profilewrapper.style.marginLeft = "3%";
       }
       function onLaptop() {
         profilewrapper.style.height = "350px";
+        document.getElementById('youtube').style.width='80%';
+        document.getElementById('youtube').style.height='800';
+
+        document.getElementById('buttonContainer').style.marginLeft='-25%'
 
         profilewrapper.style.width = "33%";
         profilewrapper.style.marginLeft = "33%";
@@ -582,18 +663,27 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
           case "gryffindor":
             nameColor = "#ffd700"; // Second color (e.g., Yellow)
             bio = `<span class="gryffindor" style="color: ${nameColor};">Courageous ${name}</span>, also known as ${username}, proudly belongs to Gryffindor! 🦁 Gryffindor is known for its bravery, courage, and chivalry. The house values daring and nerve, and its members are often known for their willingness to stand up for what is right.`;
+            setYouTubeVideo('jr4W7HDMnXM');
+
             break;
+
           case "hufflepuff":
             nameColor = "#000000"; // Second color (e.g., Black)
             bio = `<span class="hufflepuff" style="color: ${nameColor};">Loyal ${name}</span>, also known as ${username}, is a valued member of Hufflepuff! 🦡 Hufflepuff is known for its dedication, loyalty, and a strong sense of fair play. Its members are often hardworking and value friendship and inclusivity.`;
+            setYouTubeVideo('2VdwPh660hY');
+
             break;
           case "ravenclaw":
             nameColor = "#CD7F32"; // Second color (e.g., Silver)
             bio = `<span class="ravenclaw" style="color: ${nameColor};">Wise ${name}</span>, also known as ${username}, is a brilliant mind in Ravenclaw! 🦅 Ravenclaw values intelligence, creativity, and learning. Its members are known for their wisdom and love of knowledge. The house promotes individuality and independent thinking.`;
+            setYouTubeVideo('HfMX-IslFIc&t=41s');
+
             break;
           case "slytherin":
             nameColor = "#a0a0a0"; // Second color (e.g., Silver)
             bio = `<span class="slytherin" style="color: ${nameColor};">Ambitious ${name}</span>, also known as ${username}, thrives in the cunning Slytherin house! 🐍 Slytherin is known for its ambition, resourcefulness, and cunning nature. Its members are often determined and strive for success, using any means necessary.`;
+            setYouTubeVideo('xAHdHWOZu_4');
+
             break;
           default:
             bio = `Hello ${name}, also known as ${username}! Welcome to the wizarding world!`;
@@ -604,7 +694,8 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
         var element = document.getElementsByClassName("card back-face")[0];
         var modelcolor=document.getElementById("patronus-modal");
         var modelwandcolor=document.getElementById("wand-modal");
-
+        var roomcolor=document.getElementById("room-modal");
+        var col='';
         switch (housename) {
           case "gryffindor":
             element.style.background =
@@ -614,7 +705,7 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
             fullnameprofile.style.color = "#d90000";
             imageElementback.style.background = "#d90000";
             modelwandcolor.style.background="linear-gradient(to right, #d90000, #ffd700)";
-
+            col="linear-gradient(to right, #d90000, #ffd700)";
             break;
           case "hufflepuff":
             element.style.background =
@@ -627,6 +718,8 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
             "linear-gradient(to right, #ffd700, #000000)";
             modelwandcolor.style.background=
             "linear-gradient(to right, #ffd700, #000000)";
+            col="linear-gradient(to right, #ffd700, #000000)";
+
             break;
           case "ravenclaw":
             element.style.background =
@@ -638,6 +731,8 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
             "linear-gradient(to right, #222f5b, #949494)";
             modelwandcolor.style.background=
             "linear-gradient(to right, #222f5b, #949494)";
+            col="linear-gradient(to right, #222f5b, #949494)";
+
             break;
           case "slytherin":
             element.style.background =
@@ -649,8 +744,12 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
             "linear-gradient(to right, #1a472a, #a0a0a0)";
             modelwandcolor.style.background =
               "linear-gradient(to right, #1a472a, #a0a0a0)";
+              col="linear-gradient(to right, #1a472a, #a0a0a0)";
+
             break;
         }
+        roomcolor.style.background =col;
+
       }
 
 
