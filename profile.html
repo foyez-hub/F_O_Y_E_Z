@@ -220,14 +220,38 @@
         border-radius: 10px;
         text-align: center;
         width:50%;
-        text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+        /* height:30%; */
+        /* margin-top:-10% ;
+        margin-right:30%; */
 
+
+        /* background-color: white; */
+        text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+      
       }
       .modal button{
          /* background-color: #026502; */
          text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
         background-color: transparent;
         border-color: transparent;
+      }
+      
+      #youtube{
+
+        border: 2px solid yellow;
+        width:30%;
+        height:30%;
+        border-radius:70px;
+
+        Box-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+
+        background-color: #f2f2f2;
+        float: left;
+        /* margin-right:20%; */
+        margin-top:-20%;
+
+
+
       }
 
       .close-btn {
@@ -241,12 +265,6 @@
 
       }
 
-      #youtube{
-        border: 2px solid yellow;
-        
-        width:80%;
-
-      }
 
 
       /* pop up end */
@@ -286,7 +304,141 @@
         margin-top: 20px;
         line-height: 1.5; /* Add some line height for better readability */
       }
+
+
     </style>
+
+
+
+
+
+
+
+<style>
+  :root {
+  --magic-card-height:300px;
+  --magic-card-width: calc(var(--magic-card-height) / 1.5);
+}
+
+
+
+.hogwarts-card {
+  width: var(--magic-card-width);
+  height: var(--magic-card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+  
+
+  /* border: 2px solid white; */
+
+
+}
+
+.magic-cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wizardry-wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.hogwarts-card:hover .wizardry-wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  /* box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); */
+  /* -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); */
+}
+
+.wizardry-wrapper::before,
+.wizardry-wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+.wizardry-wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    /* rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97% */
+  );
+}
+
+.wizardry-wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    /* rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97% */
+  );
+}
+
+#houseicon{
+  width: 100px;
+   height:100px;
+   margin-top:10%;
+   margin-right:20%;
+   position: absolute;
+
+}
+
+
+
+.hogwarts-card:hover .wizardry-wrapper::before,
+.wizardry-wrapper::after {
+  opacity: 1;
+}
+
+.hogwarts-card:hover .wizardry-wrapper::after {
+  height: 120px;
+}
+
+.spell-title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+#backgroundMusic {
+      display: none;
+    }
+
+.hogwarts-card:hover .spell-title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.wizard-character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.hogwarts-card:hover .wizard-character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+</style>
+
+    
   </head>
   <body>
     <!-- pop up -->
@@ -321,7 +473,7 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
 
     <!-- Wand Modal -->
     <div id="wand-modal" class="modal">
-      <div class="modal-content">
+      <div id="wandtext" class="modal-content">
         <span class="close-btn" onclick="closeModal('wand-modal')"
           >&times;</span
         >
@@ -419,21 +571,37 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
 
 
     <div id="room-modal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('room-modal')"
-          >&times;</span
-        >
+      <span class="close-btn" onclick="closeModal('room-modal')"
+          >&times;</span>
+
+
+      <!-- <div class="modal-content"> -->
         
-        <!-- <img style=" border: 2px solid white ;
-        box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
-
-height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/room.png"> -->
+        <iframe id="youtube" src="" allowfullscreen allow="autoplay"></iframe>
+       
+        <audio id="backgroundMusic"  onended="pauseMusic()">
+          <source src="music/spell_sound.mp3" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
+        <audio id="backgroundMusic1"  onended="pauseMusic()">
+          <source src="music/gryffindor.mp3" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
         
+        <!-- </div> -->
+        <img onclick="iconflip()" id="houseicon" src="img/icon1.png">
 
-        <iframe  id="youtube"   src="https://www.youtube.com/embed/xAHdHWOZu_4" frameborder="0" allowfullscreen></iframe>
+        <!-- <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank"> -->
+          <div class="hogwarts-card">
+            <div class="wizardry-wrapper">
+              <img src="img/banner1.png" class="magic-cover-image" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
+            </div>
+            <img src="img/moto1.png" class="spell-title" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
+            <img src="img/lion.png" class="wizard-character" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
+          </div>
+        <!-- </a> -->
 
-      </div>
-    </div>
+        </div>
 
   
     
@@ -497,6 +665,46 @@ height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="open
     <script src="script/logout.js"></script>
 
     <script>
+    var music = document.getElementById("backgroundMusic");
+    var housemusic=document.getElementById("backgroundMusic1");
+function iconflip() {
+    var imgElement = document.getElementById("houseicon");
+
+    // Check the current source and toggle to the other image
+    if (imgElement.src.endsWith("img/icon1.png")) {
+      imgElement.src = "img/icon11.png";
+      music.play();
+    } else {
+      imgElement.src = "img/icon1.png";
+      music.play();
+
+    }
+    
+
+
+  }
+
+  function handleMouseOver(element) {
+    console.log('Mouse over image:', element);
+    // Perform actions or notification here
+    housemusic.play() 
+  
+  }
+
+  function handleMouseOut(element) {
+    console.log('Mouse out of image:', element);
+    // Perform actions or notification here
+  }
+
+
+
+
+
+  function pauseMusic() {
+    music.pause();
+    music.currentTime = 0; // Reset the playback position to the beginning
+  }
+
       let originalTransform; // Store the original transformation
     
       function openModal(modalId) {
@@ -554,6 +762,7 @@ height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="open
     </script>
 
     <script>
+
       function openModal(modalId) {
         document.getElementById(modalId).style.display = "flex";
       }
@@ -596,21 +805,30 @@ height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="open
         }
       }
 
+
       function onPhone() {
         profilewrapper.style.width = "85%";
         profilewrapper.style.height = "380px";
         document.getElementById('buttonContainer').style.marginLeft='-40%'
-        document.getElementById('youtube').style.width='100%';
-        document.getElementById('youtube').style.height='200';
+        // document.getElementById('youtube').style.width='100%';
+        // document.getElementById('youtube').style.height='200';
+        // document.getElementById("wandtext").style.height='100px';
+        var buttonsInDiv = document.getElementById("wandtext").querySelectorAll("button");
+
+       for (var i = 0; i < buttonsInDiv.length; i++) {
+             buttonsInDiv[i].style.fontSize = '6px';
+      }
+
 
         profilewrapper.style.marginLeft = "3%";
       }
       function onLaptop() {
         profilewrapper.style.height = "350px";
-        document.getElementById('youtube').style.width='80%';
-        document.getElementById('youtube').style.height='800';
+        // document.getElementById('youtube').style.width='80%';
+        // document.getElementById('youtube').style.height='800';
 
         document.getElementById('buttonContainer').style.marginLeft='-25%'
+        document.getElementById("wandtext").style.fontSize='10px';
 
         profilewrapper.style.width = "33%";
         profilewrapper.style.marginLeft = "33%";
