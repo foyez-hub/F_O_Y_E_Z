@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet" />
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <title>Emam Hasan's Portfolio</title>
     <style>
@@ -121,6 +122,7 @@
         perspective: 1000px;
         margin-left: 33%;
         margin-top: 2%;
+
       }
       .wrapper .card {
         position: absolute;
@@ -159,7 +161,8 @@
         width: 150px;
         padding: 5px;
         border-radius: 50%;
-        background: linear-gradient(375deg, #1cc7d0, #2ede98);
+        /* background: gold; */
+       
       }
       .wrapper .back-face .info {
         text-align: center;
@@ -191,6 +194,54 @@
       }
 
       /* new profile html */
+
+      /* pop up */
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+
+        /* background-color:green; */
+        /* background-image:url(img/patronasback.jpg); */
+        /* background-size: 20% 20% ; */
+      }
+
+      .modal-content {
+        background-color:transparent;
+        /* padding: 20px; */
+        border-radius: 10px;
+        text-align: center;
+        width:50%;
+        text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+
+      }
+      .modal button{
+         /* background-color: #026502; */
+         text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+        background-color: transparent;
+        border-color: transparent;
+      }
+
+      .close-btn {
+        cursor: pointer;
+        color: red;
+        font-size: 30px;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+
+      }
+
+      /* pop up end */
 
       @media screen and (max-width: 1090px) {
         body {
@@ -230,69 +281,265 @@
     </style>
   </head>
   <body>
+    <!-- pop up -->
+    <div id="patronus-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('patronus-modal')"
+          >&times;</span
+        >
+        <img style=" border: 2px solid white ;
+        box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/newpatronasbtn.png">
+        <h3>Select your Patronus</h3>
+        <button onclick="selectPatronus('🦌 Doe')">🦌 Doe</button>
+        <button onclick="selectPatronus('🦌 Stag')">🦌 Stag</button>
+        <button onclick="selectPatronus('🦦 Otter')">🦦 Otter</button>
+        <button onclick="selectPatronus('🦊 Fox')">🦊 Fox</button>
+        <button onclick="selectPatronus('🦢 Swan')">🦢 Swan</button>
+        <button onclick="selectPatronus('🐰 Hare')">🐰 Hare</button>
+        <button onclick="selectPatronus('🔥 Phoenix')">🔥 Phoenix</button>
+        <button onclick="selectPatronus('🐬 Dolphin')">🐬 Dolphin</button>
+        <button onclick="selectPatronus('🐎 Black Stallion')">
+          🐎 Black Stallion
+        </button>
+        <button onclick="selectPatronus('🦉 Snowy Owl')">🦉 Snowy Owl</button>
+        <button onclick="selectPatronus('🦔  Hedgehog')">🦔 Hedgehog</button>
+        <button onclick="selectPatronus('🐘 Elephant')">🐘 Elephant</button>
+        <!-- Add more Patronus options as needed -->
+      </div>
+    </div>
+
+    <!-- Wand Modal -->
+    <div id="wand-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('wand-modal')"
+          >&times;</span
+        >
+        <img style=" border: 2px solid white ;
+        box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+  height:90px;width:90px;"  class="fab fa-facebook-f" onclick="openModal('wand-modal')" src="img/wandnutton.png">
+        <h3>Select your wand</h3>
+        <button
+          onclick="selectWand('🌿 Hawthorn wood, 11 inches, Phoenix feather core')"
+        >
+          🌿 Hawthorn wood, 11 inches, Phoenix feather core
+        </button>
+        <button
+          onclick="selectWand('🌹  Rosewood wood, 10.5 inches, Dragon heartstring core')"
+        >
+          🌹 Rosewood wood, 10.5 inches, Dragon heartstring core
+        </button>
+        <button
+          onclick="selectWand('🍁 Maple wood, 12 inches, Unicorn hair core')"
+        >
+          🍁 Maple wood, 12 inches, Unicorn hair core
+        </button>
+        <button
+          onclick="selectWand(' 🖤 Ebony wood, 9 inches, Thestral tail hair core')"
+        >
+          🖤 Ebony wood, 9 inches, Thestral tail hair core
+        </button>
+        <button
+          onclick="selectWand('Cherry wood, 11.5 inches, Veela hair core')"
+        >
+          🍒 Cherry wood, 11.5 inches, Veela hair core
+        </button>
+        <button
+          onclick="selectWand('Oak wood, 10 inches, Thunderbird feather core')"
+        >
+          🌳 Oak wood, 10 inches, Thunderbird feather core
+        </button>
+        <button
+          onclick="selectWand('Vine wood, 12.5 inches, Hippogriff feather core')"
+        >
+          🌿 Vine wood, 12.5 inches, Hippogriff feather core
+        </button>
+        <button
+          onclick="selectWand('Alder wood, 9.5 inches, Basilisk horn core')"
+        >
+          🌳 Alder wood, 9.5 inches, Basilisk horn core
+        </button>
+        <button
+          onclick="selectWand('Cypress wood, 11 inches, Phoenix tail feather core')"
+        >
+          🌿 Cypress wood, 11 inches, Phoenix tail feather core
+        </button>
+        <button
+          onclick="selectWand('Mahogany wood, 10 inches, Kelpie hair core')"
+        >
+          🌰 Mahogany wood, 10 inches, Kelpie hair core
+        </button>
+        <!-- Add more wand options as needed -->
+      </div>
+    </div>
+
+    <!-- pop up end -->
+
     <div id="topnav-container"></div>
 
     <div class="wrapper">
       <div class="card front-face">
         <img src="img/gryffindor.gif" />
       </div>
-      <div class="card back-face">
-        <img style="width: 50px; height: 50px" src="img/gryffindor.gif" />
+      <div id="backpage" class="card back-face">
+        <img style="width: 100px; height: 100px" />
         <div class="info">
-          <div id="profileusername" class="title"></div>
-          <p id="bio">User interface designer and <br />front-end developer</p>
+          <div style="font-size: 20px" id="profileusername" class="title"></div>
+          <p style="font-size: 10px" id="bio"><br /></p>
+          <p style="font-size: 10px" id="wand">
+            Wand:
+            <span  id="wand-selection"
+              >🌹 Rosewood wood, 10.5 inches, Dragon heartstring core
+            </span>
+          </p>
+          <p style="font-size: 10px" id="patronus">
+            Patronus:
+            <span style="font-size: 10px" id="patronus-selection"
+              >🦉 Snowy Owl</span
+            >
+          </p>
         </div>
-        <ul style="margin-left: -15%">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <ul  id="buttonContainer"  style="margin-left: -15%">
+     
+
+            <img style=" border: 2px solid white ;
+                    box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+              height:30px;width:30px; margin-right:10%;"  class="fab fa-facebook-f" onclick="openModal('wand-modal')" src="img/wandnutton.png">
+          <!-- <button class="fab fa-twitter" onclick="openModal('patronus-modal')">
+            Select Patronus
+          </button> -->
+          <img style=" border: 2px solid white ;
+                  box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+          height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="openModal('patronus-modal')" src="img/newpatronasbtn.png">
+           <img style=" border: 2px solid white ;
+           box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+   height:30px;width:30px;"  class="fab fa-twitter" onclick="captureImage()" src="img/ssbtn.png">
+
         </ul>
       </div>
     </div>
 
     <script src="script/logout.js"></script>
+
     <script>
-    var profilewrapper = document.querySelector(".wrapper");
+      let originalTransform; // Store the original transformation
+    
+      function openModal(modalId) {
+        // Your modal opening logic here
+        console.log(`Opening ${modalId}`);
+      }
+    
+      function captureImage() {
+        const elementToCapture = document.getElementById('backpage');
+        const ulElement = document.getElementById('buttonContainer'); // Use the id you assigned
+    
+        // Store the original transformation
+        originalTransform = elementToCapture.style.transform;
+    
+        // Reset the transformation
+        elementToCapture.style.transform = 'none';
+    
+        // Hide the <ul> element
+        ulElement.style.display = 'none';
+    
+        // Use html2canvas with quality option
+        html2canvas(elementToCapture, {
+          useCORS: true,
+          scale: 2, // You can adjust the scale as needed
+          logging: true,
+          quality: 1, // Set the quality to 1 (highest quality)
+        }).then(function (canvas) {
+          // Convert the canvas to a data URL
+          const imgData = canvas.toDataURL('image/jpeg', 1); // Change to 'image/png' if needed
+    
+          // Create an anchor element for download
+          const downloadLink = document.createElement('a');
+          downloadLink.href = imgData;
+          downloadLink.download = 'captured_image.jpg'; // Change the filename as needed
+    
+          // Trigger a click event on the anchor to initiate the download
+          downloadLink.click();
+    
+          // Reapply the original transformation
+          elementToCapture.style.transform = originalTransform;
+    
+          // Show the <ul> element
+          ulElement.style.display = 'block';
+          location.reload();
 
-    checkScreenSize();
+        });
+      }
+    </script>
 
-     
+    </script>
+
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      function selectWand(wand) {
+        document.getElementById("wand-selection").innerText = wand;
+        closeModal("wand-modal");
+      }
+
+      function selectPatronus(patronus) {
+        document.getElementById("patronus-selection").innerText = patronus;
+        closeModal("patronus-modal");
+      }
+
+      var profilewrapper = document.querySelector(".wrapper");
+
+      checkScreenSize();
+
       function checkScreenSize() {
         // Get the screen width
         var screenWidth =
           window.innerWidth ||
           document.documentElement.clientWidth ||
           document.body.clientWidth;
-          console.log(screenWidth);
+        console.log(screenWidth);
         // Choose a threshold value based on your needs (e.g., 600 pixels)
         var threshold = 500;
 
         // Execute the appropriate function based on screen width
         if (screenWidth <= threshold) {
-          console.log('on phone');
+          console.log("on phone");
           onPhone();
         } else {
-          console.log('on laptop');
+          console.log("on laptop");
           onLaptop();
         }
       }
 
-      function onPhone(){
-        profilewrapper.style.width='65%';
-        profilewrapper.style.marginLeft='20%';
+      function onPhone() {
+        profilewrapper.style.width = "85%";
+        profilewrapper.style.height = "380px";
 
-
+        profilewrapper.style.marginLeft = "3%";
       }
-      function onLaptop(){
-        profilewrapper.style.width='33%';
-        profilewrapper.style.marginLeft='33%';
+      function onLaptop() {
+        profilewrapper.style.height = "350px";
 
+        profilewrapper.style.width = "33%";
+        profilewrapper.style.marginLeft = "33%";
       }
-
-     
-
 
       function setprofile() {
+        closeModal("wand-modal");
+        closeModal("patronus-modal");
         var contactMidDiv = document.querySelector(".frontside");
+        var housename = localStorage.getItem("housename");
 
         // document.getElementById("profileusername").innerHTML =
         //   localStorage.getItem("loggedInUser");
@@ -300,6 +547,13 @@
         fullnameprofile.innerHTML = localStorage.getItem("fullname");
 
         var cardElements = document.getElementsByClassName("card front-face");
+        var cardElement = cardElements[0];
+        var cardElementsbacks =
+          document.getElementsByClassName("card back-face");
+        var cardElementsback = cardElementsbacks[0];
+        var imageElementback = cardElementsback.querySelector("img");
+
+        imageElementback.src = "img/" + housename + ".png";
 
         // Check if there's at least one element with the specified class
         if (cardElements.length > 0) {
@@ -308,7 +562,6 @@
 
           // Get the image element within the selected div
           var imageElement = cardElement.querySelector("img");
-          var housename = localStorage.getItem("housename");
 
           // Change the src attribute to the new image URL
           imageElement.src = "img/" + housename + ".gif";
@@ -349,13 +602,18 @@
         document.getElementById("bio").innerHTML = bio;
 
         var element = document.getElementsByClassName("card back-face")[0];
+        var modelcolor=document.getElementById("patronus-modal");
+        var modelwandcolor=document.getElementById("wand-modal");
 
         switch (housename) {
           case "gryffindor":
             element.style.background =
               "linear-gradient(to right, #d90000, #ffd700)";
+              modelcolor.style.background="linear-gradient(to right, #d90000, #ffd700)";
             element.style.color = "#fff";
             fullnameprofile.style.color = "#d90000";
+            imageElementback.style.background = "#d90000";
+            modelwandcolor.style.background="linear-gradient(to right, #d90000, #ffd700)";
 
             break;
           case "hufflepuff":
@@ -363,26 +621,43 @@
               "linear-gradient(to right, #ffd700, #000000)";
             element.style.color = "#fff";
             fullnameprofile.style.color = "#ffd700";
+            imageElementback.style.background = "#ffd700";
 
+            modelcolor.style.background=
+            "linear-gradient(to right, #ffd700, #000000)";
+            modelwandcolor.style.background=
+            "linear-gradient(to right, #ffd700, #000000)";
             break;
           case "ravenclaw":
             element.style.background =
               "linear-gradient(to right, #222f5b, #949494)";
             element.style.color = "#fff";
             fullnameprofile.style.color = "#222f5b";
-
+            imageElementback.style.background = "#222f5b";
+            modelcolor.style.background=
+            "linear-gradient(to right, #222f5b, #949494)";
+            modelwandcolor.style.background=
+            "linear-gradient(to right, #222f5b, #949494)";
             break;
           case "slytherin":
             element.style.background =
               "linear-gradient(to right, #1a472a, #a0a0a0)";
             element.style.color = "#fff";
             fullnameprofile.style.color = "#1a472a";
+            imageElementback.style.background = "#1a472a";
+            modelcolor.style.background=
+            "linear-gradient(to right, #1a472a, #a0a0a0)";
+            modelwandcolor.style.background =
+              "linear-gradient(to right, #1a472a, #a0a0a0)";
             break;
         }
       }
 
+
+
       setprofile();
     </script>
+
     <script src="script/islogin.js"></script>
 
     <script src="script/topnav.js"></script>

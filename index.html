@@ -258,7 +258,7 @@
     <div class="snakediv">
       <div class="snake head"></div>
 
-      <div class="profileimagediv">
+      <div id="maindiv" class="profileimagediv">
         <audio id="music" controls>
           <source src="music/Lily's Theme.mp3" type="audio/mp3" />
         </audio>
@@ -321,6 +321,11 @@
         // Disable or hide the snake head element
         var snakeHead = document.querySelector(".snake.head");
         profilepicwidth.style.height = "25%";
+        document.getElementById('maindiv').style.height="400px";
+        document.getElementById('maindiv').style.width="100%";
+        document.getElementById('maindiv').style.marginLeft="2%";
+
+
         if (snakeHead) {
           snakeHead.style.display = "none";
           // or you can remove the element from the DOM: snakeHead.remove();

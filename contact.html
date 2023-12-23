@@ -75,6 +75,7 @@
         color: black;
       }
       #info{
+        
         /* background-color: azure; */
         width:20%;
         margin-left:11%;
@@ -161,23 +162,33 @@
 
 
 
-
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1090px) {
         body {
           font-size: 14px;
         }
       }
 
+      @media screen and (max-width: 990px) {
+        body {
+          font-size: 13px;
+        }
+      }
+
       @media screen and (max-width: 768px) {
         body {
-          font-size: 14px;
+          font-size: 10px;
         }
       }
 
       /* Adjust font size for smaller screens */
       @media screen and (max-width: 480px) {
         body {
-          font-size: 10px;
+          font-size: 7px;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        body {
+          font-size: 6px;
         }
       }
 
@@ -192,7 +203,7 @@
 
       
 
-    <div class="contactmiddiv">
+    <div id="middiv" class="contactmiddiv">
 
       <section class="contact-section">
         <h1 style=" color: white;
@@ -207,7 +218,7 @@
 
         </p>
         <div>
-          <img style="float:right; width:40%;" src="img/owel-mail.png"></img>
+          <img style="float:right; width:40%;margin-top:-15%;" src="img/owel-mail.png"></img>
         </div>
   
       </section>
@@ -220,8 +231,45 @@
 
     <script src="script/logout.js"></script>
     <script src="script/islogin.js"></script>
+<script>
+    function onLaptop(){
+      document.getElementById('middiv').style.height="70%";
+      document.getElementById('middiv').style.width="50%";
+      document.getElementById('middiv').style.marginLeft="25%";         
+    }
+    function onPhone(){
 
-    
+      document.getElementById('middiv').style.height="80%";
+      document.getElementById('middiv').style.width="85%";
+      document.getElementById('middiv').style.marginLeft="2%";
+
+
+    }
+
+
+    checkScreenSize();
+
+      function checkScreenSize() {
+        // Get the screen width
+        var screenWidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+        console.log(screenWidth);
+        // Choose a threshold value based on your needs (e.g., 600 pixels)
+        var threshold = 500;
+
+        // Execute the appropriate function based on screen width
+        if (screenWidth <= threshold) {
+          console.log("on phone");
+          onPhone();
+        } else {
+          console.log("on laptop");
+          onLaptop();
+        }
+      }
+
+    </script>
 
   </body>
 </html>
