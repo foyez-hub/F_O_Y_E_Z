@@ -320,7 +320,7 @@
 
         // Disable or hide the snake head element
         var snakeHead = document.querySelector(".snake.head");
-        profilepicwidth.style.height = "20%";
+        profilepicwidth.style.height = "25%";
         if (snakeHead) {
           snakeHead.style.display = "none";
           // or you can remove the element from the DOM: snakeHead.remove();
@@ -333,7 +333,7 @@
         // Logic for laptop screen
         console.log("On laptop screen");
         var snakeHead = document.querySelector(".snake.head");
-        profilepicwidth.style.height = "50%";
+        profilepicwidth.style.height = "56%";
         // Enable or show the snake head element
         var snakeHead = document.querySelector(".snake.head");
         if (snakeHead) {
@@ -439,13 +439,16 @@
           document.body.clientWidth;
 
         // Choose a threshold value based on your needs (e.g., 600 pixels)
-        var threshold = 850;
+        var threshold = 600;
 
         // Execute the appropriate function based on screen width
-        if (screenWidth <= threshold || isChromeDesktopModeOnPhone()) {
+        if (screenWidth <= threshold) {
           onPhone();
+          console.log('phone');
         } else {
+          console.log('laptop');
           onLaptop();
+          
         }
       }
 

@@ -115,11 +115,11 @@
       }
       .wrapper {
         height: 350px;
-        width: 320px;
+        width: 65%;
         position: relative;
         transform-style: preserve-3d;
         perspective: 1000px;
-        margin-left: 30%;
+        margin-left: 33%;
         margin-top: 2%;
       }
       .wrapper .card {
@@ -237,28 +237,67 @@
         <img src="img/gryffindor.gif" />
       </div>
       <div class="card back-face">
-        <img style="width:50px;height: 50px; ;" src="img/gryffindor.gif" />
+        <img style="width: 50px; height: 50px" src="img/gryffindor.gif" />
         <div class="info">
           <div id="profileusername" class="title"></div>
           <p id="bio">User interface designer and <br />front-end developer</p>
         </div>
-        <ul style="margin-left: -15%;" >
+        <ul style="margin-left: -15%">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
-        
         </ul>
       </div>
     </div>
 
     <script src="script/logout.js"></script>
     <script>
+    var profilewrapper = document.querySelector(".wrapper");
+
+    checkScreenSize();
+
+     
+      function checkScreenSize() {
+        // Get the screen width
+        var screenWidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+          console.log(screenWidth);
+        // Choose a threshold value based on your needs (e.g., 600 pixels)
+        var threshold = 500;
+
+        // Execute the appropriate function based on screen width
+        if (screenWidth <= threshold) {
+          console.log('on phone');
+          onPhone();
+        } else {
+          console.log('on laptop');
+          onLaptop();
+        }
+      }
+
+      function onPhone(){
+        profilewrapper.style.width='65%';
+        profilewrapper.style.marginLeft='20%';
+
+
+      }
+      function onLaptop(){
+        profilewrapper.style.width='33%';
+        profilewrapper.style.marginLeft='33%';
+
+      }
+
+     
+
+
       function setprofile() {
         var contactMidDiv = document.querySelector(".frontside");
 
         // document.getElementById("profileusername").innerHTML =
         //   localStorage.getItem("loggedInUser");
-        fullnameprofile= document.getElementById("profileusername");
-          fullnameprofile.innerHTML=localStorage.getItem("fullname");
+        fullnameprofile = document.getElementById("profileusername");
+        fullnameprofile.innerHTML = localStorage.getItem("fullname");
 
         var cardElements = document.getElementsByClassName("card front-face");
 
@@ -316,28 +355,28 @@
             element.style.background =
               "linear-gradient(to right, #d90000, #ffd700)";
             element.style.color = "#fff";
-            fullnameprofile.style.color='#d90000';
+            fullnameprofile.style.color = "#d90000";
 
             break;
           case "hufflepuff":
             element.style.background =
               "linear-gradient(to right, #ffd700, #000000)";
             element.style.color = "#fff";
-            fullnameprofile.style.color='#ffd700';
+            fullnameprofile.style.color = "#ffd700";
 
             break;
           case "ravenclaw":
             element.style.background =
               "linear-gradient(to right, #222f5b, #949494)";
             element.style.color = "#fff";
-            fullnameprofile.style.color='#222f5b';
+            fullnameprofile.style.color = "#222f5b";
 
             break;
           case "slytherin":
             element.style.background =
               "linear-gradient(to right, #1a472a, #a0a0a0)";
             element.style.color = "#fff";
-            fullnameprofile.style.color='#1a472a';
+            fullnameprofile.style.color = "#1a472a";
             break;
         }
       }
