@@ -20,7 +20,18 @@
         background-repeat: repeat;
         height: 95vh;
         font-size: 18px;
+
       }
+
+      .wand-cursor {
+  position: absolute;
+  pointer-events: none;
+  width: 30px; /* Adjust the width of the wand */
+  height: 30px; /* Adjust the height of the wand */
+  z-index: 9999; /* Set a high z-index */
+  display: none; /* Initially hide the cursor */
+}
+   
 
       .profileimagediv {
         background-image: url(img/topcover.jpg);
@@ -238,20 +249,32 @@
       
       #youtube{
 
-        border: 2px solid yellow;
+        border: 2px solid red;
         width:30%;
         height:30%;
         border-radius:70px;
 
-        Box-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow;
+        /* Box-shadow: 0 0 10 gold, 0 0 30px gold, 0 0 30px gold; */
 
-        background-color: #f2f2f2;
+        /* background-color: #f2f2f2; */
         float: left;
         /* margin-right:20%; */
         margin-top:-20%;
+        text-align: center;
+        box-shadow: 0 0 10px red, 0 0 30px gold, 0 0 30px red;
+
+      }
 
 
 
+
+      #housename{
+
+        color: white;
+        /* text-shadow: 0 0 10px red, 0 0 30px gold, 0 0 30px red; */
+         /* background-color: #026502; */
+         /* text-shadow: 0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow; */
+       margin-top: 15%;
       }
 
       .close-btn {
@@ -568,6 +591,7 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
     </div>
 
 
+  <!-- <div class="wand-cursor"></div> -->
 
 
     <div id="room-modal" class="modal">
@@ -577,15 +601,26 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
 
       <!-- <div class="modal-content"> -->
         
-        <iframe id="youtube" src="" allowfullscreen allow="autoplay"></iframe>
-       
+        <!-- <iframe  src="" allowfullscreen allow="autoplay"></iframe> -->
+        <!-- <img id="youtube" src="img/gryffindorfemale.png"> -->
+        
+        <div id="youtube">
+
+         <h1 id="housename" > Gryffindor Tower</h1>	
+
+        </div>
+
         <audio id="backgroundMusic"  onended="pauseMusic()">
           <source src="music/spell_sound.mp3" type="audio/mp3">
-          Your browser does not support the audio tag.
+          <!-- Your browser does not support the audio tag. -->
         </audio>
         <audio id="backgroundMusic1"  onended="pauseMusic()">
-          <source src="music/gryffindor.mp3" type="audio/mp3">
-          Your browser does not support the audio tag.
+          <source src="music/spellsexp.mp3" type="audio/mp3">
+          <!-- Your browser does not support the audio tag. -->
+        </audio>
+        <audio id="backgroundMusic2"  onended="pauseMusic()">
+          <source src="music/lumos.mp3" type="audio/mp3">
+          <!-- Your browser does not support the audio tag. -->
         </audio>
         
         <!-- </div> -->
@@ -594,14 +629,37 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
         <!-- <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank"> -->
           <div class="hogwarts-card">
             <div class="wizardry-wrapper">
-              <img src="img/banner1.png" class="magic-cover-image" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
+              <img id="housebanner" src="img/banner1.png" class="magic-cover-image" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
             </div>
-            <img src="img/moto1.png" class="spell-title" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
-            <img src="img/lion.png" class="wizard-character" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
+            <!-- <img id="housenameonimg" src="img/moto1.png" class="spell-title" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" /> -->
+            <img id="houseanimal" src="img/lion.png" class="wizard-character" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)" />
           </div>
         <!-- </a> -->
 
         </div>
+
+        
+
+        <div   id="password-modal" class="modal">
+          <span class="close-btn" onclick="closeModal('password-modal')">&times;</span>
+          <!-- <span  style="background-color: #1cc7d0; font-size: 10px;">Enter the password to enter the your house common room</label> -->
+            <div style="width:50%;height:50%;margin-top:3%;" id="youtube">
+
+              <p id="passwordask"> Summon the bravery within: What's the password to Gryffindor's den? </p>	
+              Password <input style="
+                      box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+
+              " type="password" id="housePassword" /><br>
+              <button style="border:3px soild black;" onclick="submitPassword()">Enter</button>
+              <p id="password-warning" style="color: red;"></p>
+
+             </div>
+             <!-- <label for="housePassword">Password:</label> -->
+
+  
+
+        </div>
+        
 
   
     
@@ -650,7 +708,7 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
 <img style=" border: 2px solid white ;
 box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
 
-height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="openModal('room-modal')" src="img/room.png">
+height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="openModal('password-modal')" src="img/room.png">
 
 
            <img style=" border: 2px solid white ;
@@ -667,6 +725,7 @@ height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="open
     <script>
     var music = document.getElementById("backgroundMusic");
     var housemusic=document.getElementById("backgroundMusic1");
+    var lomues=document.getElementById("backgroundMusic2");
 function iconflip() {
     var imgElement = document.getElementById("houseicon");
 
@@ -684,6 +743,79 @@ function iconflip() {
 
   }
 
+  function checkPassword(house, enteredPassword) {
+  const correctPassword = housePasswords[house];
+
+  if (correctPassword && enteredPassword.toLowerCase().includes(correctPassword.toLowerCase())) {
+    return true; // Password is correct (case-insensitive and any variation)
+  } else {
+    return false; // Password is incorrect
+  }
+}
+
+const housePasswords = {
+  gryffindor: 'gryffindor',
+  slytherin: 'slytherin',
+  ravenclaw: 'ravenclaw',
+  hufflepuff: 'hufflepuff'
+};
+  // Function to submit the entered password
+  function submitPassword() {
+
+  const enteredPassword = document.getElementById('housePassword').value.toLowerCase();
+  const houseToCheck = localStorage.getItem('housename');
+
+  const isPasswordCorrect = checkPassword(houseToCheck, enteredPassword);
+
+  if (isPasswordCorrect) {
+    console.log('Password is correct! Welcome to', houseToCheck);
+    closeModal('password-modal');
+    openModal('room-modal');
+  } else {
+    // Show warning message and hints in the input field itself
+    const passwordWarning = document.getElementById('password-warning');
+    passwordWarning.textContent = 'Incorrect password. Hints: Name of the house';
+  }
+}
+
+// Function to clear the warning when user starts typing
+function clearPasswordWarning() {
+  const passwordWarning = document.getElementById('password-warning');
+  passwordWarning.textContent = '';
+}
+
+function updatePasswordPrompt(houseName) {
+  const passwordPrompt = document.getElementById('passwordask');
+
+  switch (houseName.toLowerCase()) {
+    case 'gryffindor':
+      passwordPrompt.textContent = "Summon the bravery within: What's the password to Gryffindor's den?";
+      break;
+    case 'slytherin':
+      passwordPrompt.textContent = "Unlock the secrets of Slytherin: What's the mystical password?";
+      break;
+    case 'ravenclaw':
+      passwordPrompt.textContent = "Embrace the wisdom: What's the magical key to Ravenclaw's realm?";
+      break;
+    case 'hufflepuff':
+      passwordPrompt.textContent = "Find your way to Hufflepuff's haven: What's the golden password?";
+      break;
+    default:
+      passwordPrompt.textContent = "Enter the password to access this magical realm.";
+      break;
+  }
+}
+
+
+
+
+updatePasswordPrompt(localStorage.getItem('housename'));
+
+
+
+
+
+
   function handleMouseOver(element) {
     console.log('Mouse over image:', element);
     // Perform actions or notification here
@@ -694,9 +826,65 @@ function iconflip() {
   function handleMouseOut(element) {
     console.log('Mouse out of image:', element);
     // Perform actions or notification here
-  }
+}
+
+var h1Element = document.getElementById('housename');
+
+// Add a click event listener to the div
+document.getElementById('youtube').addEventListener('click', function() {
+    // Check if the text shadow is currently applied
+    var currentTextShadow = h1Element.style.textShadow;
+  
+    if (currentTextShadow) {
+        // If text shadow is applied, remove it
+        h1Element.style.textShadow = '';
+    } else {
+        // If text shadow is not applied, add it
+        h1Element.style.textShadow = '0 0 10px greenyellow, 0 0 30px greenyellow, 0 0 30px greenyellow';
+    }
+  
+    lomues.play();
+});
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Create a wand image element
+  var wandCursor = document.createElement('img');
+  wandCursor.src = 'img/wandnutton.png'; // Replace with the correct path to your wand image
+  wandCursor.classList.add('wand-cursor');
+  wandCursor.style.width = '30px'; // Adjust the width of the wand
+  wandCursor.style.height = '30px'; // Adjust the height of the wand
+  wandCursor.style.zIndex = '9999'; // Set a high z-index
+
+  // Append the wand image to the body
+  document.body.appendChild(wandCursor);
+
+  // Track mouse movements to move the wand image only within the specified area
+  document.addEventListener('mousemove', function (event) {
+    // Check if the mouse is inside the #room-modal div
+    var roomModal = document.getElementById('room-modal');
+    if (roomModal && roomModal.contains(event.target)) {
+      wandCursor.style.left = event.clientX - wandCursor.width / 2 + 'px';
+      wandCursor.style.top = event.clientY - wandCursor.height + 'px';
+      document.body.style.cursor = 'none'; // Hide the default cursor
+    } else {
+      // Hide the cursor if outside the #room-modal div
+      wandCursor.style.display = 'none';
+      document.body.style.cursor = 'default'; // Show the default cursor
+    }
+  });
+
+  // Show the cursor when entering the #room-modal div
+  document.getElementById('room-modal').addEventListener('mouseenter', function () {
+    wandCursor.style.display = 'block';
+  });
+
+  // Hide the cursor when leaving the #room-modal div
+  document.getElementById('room-modal').addEventListener('mouseleave', function () {
+    wandCursor.style.display = 'none';
+    document.body.style.cursor = 'default'; // Show the default cursor
+  });
+});
 
 
 
@@ -743,7 +931,7 @@ function iconflip() {
           // Create an anchor element for download
           const downloadLink = document.createElement('a');
           downloadLink.href = imgData;
-          downloadLink.download = 'captured_image.jpg'; // Change the filename as needed
+          downloadLink.download = 'harrayPotter.jpg'; // Change the filename as needed
     
           // Trigger a click event on the anchor to initiate the download
           downloadLink.click();
@@ -834,6 +1022,13 @@ function iconflip() {
         profilewrapper.style.marginLeft = "33%";
       }
 
+      function imgsrchange(id, newSrc) {
+  var element = document.getElementById(id);
+  if (element) {
+    element.src = newSrc;
+  }
+}
+
       function setprofile() {
         closeModal("wand-modal");
         closeModal("patronus-modal");
@@ -882,6 +1077,9 @@ function iconflip() {
             nameColor = "#ffd700"; // Second color (e.g., Yellow)
             bio = `<span class="gryffindor" style="color: ${nameColor};">Courageous ${name}</span>, also known as ${username}, proudly belongs to Gryffindor! 🦁 Gryffindor is known for its bravery, courage, and chivalry. The house values daring and nerve, and its members are often known for their willingness to stand up for what is right.`;
             setYouTubeVideo('jr4W7HDMnXM');
+            imgsrchange("housebanner","img/banner1.png");
+            imgsrchange("houseanimal","img/lion.png");
+
 
             break;
 
@@ -889,19 +1087,22 @@ function iconflip() {
             nameColor = "#000000"; // Second color (e.g., Black)
             bio = `<span class="hufflepuff" style="color: ${nameColor};">Loyal ${name}</span>, also known as ${username}, is a valued member of Hufflepuff! 🦡 Hufflepuff is known for its dedication, loyalty, and a strong sense of fair play. Its members are often hardworking and value friendship and inclusivity.`;
             setYouTubeVideo('2VdwPh660hY');
-
+            imgsrchange("housebanner","img/banner4.png");
+            imgsrchange("houseanimal","img/badger.png");
             break;
           case "ravenclaw":
             nameColor = "#CD7F32"; // Second color (e.g., Silver)
             bio = `<span class="ravenclaw" style="color: ${nameColor};">Wise ${name}</span>, also known as ${username}, is a brilliant mind in Ravenclaw! 🦅 Ravenclaw values intelligence, creativity, and learning. Its members are known for their wisdom and love of knowledge. The house promotes individuality and independent thinking.`;
             setYouTubeVideo('HfMX-IslFIc&t=41s');
-
+            imgsrchange("housebanner","img/banner3.png");
+            imgsrchange("houseanimal","img/egale.png");
             break;
           case "slytherin":
             nameColor = "#a0a0a0"; // Second color (e.g., Silver)
             bio = `<span class="slytherin" style="color: ${nameColor};">Ambitious ${name}</span>, also known as ${username}, thrives in the cunning Slytherin house! 🐍 Slytherin is known for its ambition, resourcefulness, and cunning nature. Its members are often determined and strive for success, using any means necessary.`;
             setYouTubeVideo('xAHdHWOZu_4');
-
+            imgsrchange("housebanner","img/housebanner.png");
+            imgsrchange("houseanimal","img/snake.png");
             break;
           default:
             bio = `Hello ${name}, also known as ${username}! Welcome to the wizarding world!`;
@@ -913,6 +1114,8 @@ function iconflip() {
         var modelcolor=document.getElementById("patronus-modal");
         var modelwandcolor=document.getElementById("wand-modal");
         var roomcolor=document.getElementById("room-modal");
+        var housetitle=document.getElementById('housename');
+        housetitle.innerText=" Gryffindor Tower";
         var col='';
         switch (housename) {
           case "gryffindor":
@@ -924,6 +1127,8 @@ function iconflip() {
             imageElementback.style.background = "#d90000";
             modelwandcolor.style.background="linear-gradient(to right, #d90000, #ffd700)";
             col="linear-gradient(to right, #d90000, #ffd700)";
+            housetitle.innerText="Gryffindor Tower";
+           
             break;
           case "hufflepuff":
             element.style.background =
@@ -931,6 +1136,7 @@ function iconflip() {
             element.style.color = "#fff";
             fullnameprofile.style.color = "#ffd700";
             imageElementback.style.background = "#ffd700";
+            housetitle.innerText="Hufflepuff Basement";
 
             modelcolor.style.background=
             "linear-gradient(to right, #ffd700, #000000)";
@@ -950,6 +1156,7 @@ function iconflip() {
             modelwandcolor.style.background=
             "linear-gradient(to right, #222f5b, #949494)";
             col="linear-gradient(to right, #222f5b, #949494)";
+            housetitle.innerText = "Ravenclaw Tower";
 
             break;
           case "slytherin":
@@ -963,10 +1170,12 @@ function iconflip() {
             modelwandcolor.style.background =
               "linear-gradient(to right, #1a472a, #a0a0a0)";
               col="linear-gradient(to right, #1a472a, #a0a0a0)";
+              housetitle.innerText = "Slytherin Dungeon";
 
             break;
         }
         roomcolor.style.background =col;
+        document.getElementById('password-modal').style.background=col;
 
       }
 
