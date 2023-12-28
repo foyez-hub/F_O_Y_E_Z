@@ -27,14 +27,6 @@
         /* border: 2px solid red; */
         /* height: 700px; */
       }
-      
-      html {
-        zoom: 100%;
-        -moz-transform: scale(1);
-        transform: scale(1);
-        -moz-transform-origin: 0 0;
-        transform-origin: 0 0;
-      }
 
       h1 {
         color: white;
@@ -49,38 +41,18 @@
         color: silver;
       }
 
-      .project-section {
-        margin-top: 20px;
-      }
-
-      .achievements-section {
-        margin-top: 20px;
-      }
-
-      .skills-section {
-        margin-top: 20px;
-      }
-
-      .research-section {
-        margin-top: 20px;
-      }
-
-      .contact-section {
-        margin-top: 20px;
-      }
-
       .profileimagediv {
         /* background-image: url(img/topcover.jpg); */
-        background-color: #026502;
+        background-color: transparent;
         background-size: cover; /* You can also use 'contain' or specific dimensions */
         background-position: center; /* Optional: Center the image */
         width: 80%;
-        height: 80%;
+        height: 85%;
         margin-left: 10%;
         margin-top: 2%;
         /* margin-top: 2%; */
         /* border: 2px solid rgb(145, 16, 16); */
-        box-shadow: 0 4px 8px greenyellow;
+        /* box-shadow: 0 4px 8px greenyellow; */
         border-radius: 10px;
       }
 
@@ -91,7 +63,22 @@
         text-align: left;
         margin-left: 6%;
         color: black;
+        font-size: 30px;
+
+        margin-left: 2%;
+        margin-top: 40%;
+
+        text-align: center;
+        color: #6dc822;
+        background-color: #f2f2f2;
+        float: left;
+        padding: 2%;
+        height: 50px;
+        box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow,
+          0 0 30px greenyellow;
+        border-radius: 10px;
       }
+
       #info {
         /* background-color: azure; */
         width: 90%;
@@ -101,26 +88,6 @@
         margin-top: 10%;
         margin-left: 2%;
         text-align: center;
-      }
-
-      audio {
-        width: 100%;
-        height: 10%;
-        /* margin: 20px auto; */
-        display: block;
-        margin-top: 1%;
-      }
-
-      audio::-webkit-media-controls-panel {
-        background-color: rgb(0, 37, 0);
-        border-radius: 2px;
-      }
-
-      audio::-webkit-media-controls-play-button,
-      audio::-webkit-media-controls-pause-button,
-      audio::-webkit-media-controls-mute-button,
-      audio::-webkit-media-controls-volume-slider {
-        filter: invert(1);
       }
 
       .topnav {
@@ -151,22 +118,29 @@
 
       #profilepic {
         width: 45%;
-        height: 20%;
+        height: 100%;
         /* margin-bottom: 20%; */
         float: right;
         /* background-color: #d51d54; */
         cursor: move;
-        margin-top: 5%;
+        /* margin-top: 5%; */
         margin-right: 2%;
         height: 100%;
       }
+
       /* right side my pofile picture  */
+
       #pic {
-        width: 100%;
-        height: 50%;
-        border: 2px solid green;
+        width: 75%;
+        height: 100%;
+        border: 1px solid white;
         border-radius: 10px;
-        box-shadow: 2px 2px 2px silver; /* Adjust the values as needed */
+        margin-left: 10%;
+        box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow,
+          0 0 30px greenyellow;
+
+        margin-top: 2%;
+        /* box-shadow: 2px 2px 2px silver;  */
       }
 
       #leftcon {
@@ -218,36 +192,136 @@
         height: 420px;
         /* border: 3px solid red; */
       }
+    </style>
+    <style>
+      #dynamicText {
+        display: inline-block;
+        font-size: 36px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 5px solid #333;
+        animation: type 0.5s steps(20, end), blink-caret 0.75s step-end infinite;
+        position: relative;
+        animation: floatText 3s infinite alternate ease-in-out;
+        animation: magicalEffect 4s infinite alternate ease-in-out;
+        text-shadow: 0 4px 8px greenyellow;
+        background-color: green;
+        border-radius: 10px;
+        padding: 5%;
+      }
 
-      /* snake end */
+      @media only screen and (max-width: 350px) {
+        #dynamicText {
+          display: inline-block;
+          font-size: 30px;
+          white-space: nowrap;
+          overflow: hidden;
+          border-right: 5px solid #333;
+          animation: type 0.5s steps(20, end),
+            blink-caret 0.75s step-end infinite;
+          position: relative;
+          animation: floatText 3s infinite alternate ease-in-out;
+          animation: magicalEffect 4s infinite alternate ease-in-out;
+          text-shadow: 0 4px 8px greenyellow;
+          background-color: green;
+          border-radius: 10px;
+          padding: 5%;
+          margin-top: 80%;
+          margin-left:25%;
+          border: 2px solid white;
+        }
 
-      @media screen and (max-width: 1090px) {
-        body {
-          font-size: 14px;
+        .profileimagediv {
+          /* background-image: url(img/topcover.jpg); */
+          background-color: transparent;
+          background-size: cover; /* You can also use 'contain' or specific dimensions */
+          background-position: center; /* Optional: Center the image */
+          width: 80%;
+          height: 90%;
+          /* margin-top: 2%; */
+          /* border: 2px solid rgb(145, 16, 16); */
+          /* box-shadow: 0 4px 8px greenyellow; */
+          border-radius: 10px;
+          /* background-color: #f2f2f2; */
+        }
+
+        #profilepic {
+          width: 50%;
+          height: 50%;
+          /* margin-bottom: 20%; */
+          float: right;
+          /* background-color: #d51d54; */
+          cursor: move;
+          margin-top: 10%;
+          margin-right: -4%;
+          height: 100%;
+          /* background-color: #333; */
+        }
+
+        /* right side my pofile picture  */
+
+        #pic {
+          width: 100%;
+          height: 50%;
+          border: 1px solid white;
+          border-radius: 30px;
+          box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow,
+            0 0 30px greenyellow;
+
+          margin-top: 2%;
+          /* box-shadow: 2px 2px 2px silver;  */
+        }
+        #title {
+        /* background-color: rgb(32, 163, 104); */
+        width: 100%;
+        margin-top: 4%;
+        text-align: left;
+        margin-left: 6%;
+        color: black;
+        font-size: 30px;
+
+        margin-left: 2%;
+        margin-top: 40%;
+
+        text-align: center;
+        color: #6dc822;
+        background-color: #f2f2f2;
+        float: left;
+        padding: 2%;
+        height: 50%;
+        box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow,
+          0 0 30px greenyellow;
+        border-radius: 10px;
+      }
+      }
+
+      @keyframes type {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
         }
       }
 
-      @media screen and (max-width: 990px) {
-        body {
-          font-size: 13px;
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #333;
         }
       }
 
-      @media screen and (max-width: 768px) {
-        body {
-          font-size: 10px;
+      @keyframes magicalEffect {
+        0% {
+          color: rgb(236, 244, 238);
+          transform: scale(1);
         }
-      }
-
-      /* Adjust font size for smaller screens */
-      @media screen and (max-width: 480px) {
-        body {
-          font-size: 7px;
-        }
-      }
-      @media screen and (max-width: 350px) {
-        body {
-          font-size: 6px;
+        100% {
+          color: rgb(213, 219, 209); /* Change to a different color */
+          transform: scale(1.2);
         }
       }
     </style>
@@ -259,40 +333,30 @@
       <div class="snake head"></div>
 
       <div id="maindiv" class="profileimagediv">
-        <audio id="music" controls>
+        <!-- <audio id="music" controls>
           <source src="music/Lily's Theme.mp3" type="audio/mp3" />
-        </audio>
+        </audio> -->
 
         <div id="profilepic">
-          <img id="pic" src="" alt="Profile Picture" />
+          <img
+            id="pic"
+            class="profileimg"
+            src="img/foyezimg.jpg"
+            alt="Profile Picture"
+          />
           <!-- <h1  id="bottomtitle">Do what is necessary</h1> -->
-          <h1
-            style="
-              margin-left: 2%;
-
-              text-align: center;
-              color: #6dc822;
-            "
-            id="title"
-          >
-            Emam Hasan Foyez
-          </h1>
         </div>
 
         <div id="leftcon">
           <!-- <h1 style="color: #6dc822;" id="title">Emam Hasan</h1> -->
 
-          <p id="info" style="color: silver">
-            In the mystical tapestry of my existence, I am a cinematic sorcerer,
-            coding enchanter, and cunning denizen of Slytherin House, weaving
-            the threads of life's canvas with the vibrant hues of art and the
-            profound strokes of science. With a heart attuned to the harmonies
-            of creativity, I embark on a magical journey where each passion
-            becomes a spellbinding chapter in the story of me. Welcome to the
-            enchanting symphony of my multifaceted world, where the magic of
-            movies, code, art, and science converges in the serpentine embrace
-            of Slytherin wisdom.
-          </p>
+          <h1 id="title">
+            Emam Hasan Foyez
+
+            <h1>
+              <span id="dynamicText">Hello</span>
+            </h1>
+          </h1>
         </div>
       </div>
     </div>
@@ -303,28 +367,12 @@
     <script src="script/logout.js"></script>
 
     <script>
-      function isChromeDesktopModeOnPhone() {
-        var isChrome =
-          /Chrome/.test(navigator.userAgent) &&
-          /Mobile/.test(navigator.userAgent);
-        var isWideScreen = window.innerWidth >= 1024; // Adjust the threshold as needed
-
-        return isChrome && isWideScreen;
-      }
-
-      var profilepicwidth = document.querySelector("#pic");
-
       function onPhone() {
         // Logic for phone screen
         console.log("On phone screen");
 
         // Disable or hide the snake head element
         var snakeHead = document.querySelector(".snake.head");
-        profilepicwidth.style.height = "25%";
-        document.getElementById('maindiv').style.height="400px";
-        document.getElementById('maindiv').style.width="100%";
-        document.getElementById('maindiv').style.marginLeft="2%";
-
 
         if (snakeHead) {
           snakeHead.style.display = "none";
@@ -338,8 +386,7 @@
         // Logic for laptop screen
         console.log("On laptop screen");
         var snakeHead = document.querySelector(".snake.head");
-        profilepicwidth.style.height = "56%";
-        // Enable or show the snake head element
+
         var snakeHead = document.querySelector(".snake.head");
         if (snakeHead) {
           snakeHead.style.display = "block";
@@ -349,7 +396,7 @@
         document.addEventListener("DOMContentLoaded", function () {
           const snake = document.querySelector(".snake");
           const container = document.querySelector(".snakediv");
-          var dif = 100;
+          var dif = 80;
           let posX = dif;
           let posY = dif;
           let direction = "right";
@@ -407,12 +454,6 @@
               // console.log("rotright");
             }
 
-            // Create a new tail block periodically
-            if (posX % 2 === 0 && posY % 2 === 0 && cnt <= 600) {
-              createTailBlock();
-            }
-
-            // Update the position of the tail blocks
             for (let i = tailBlocks.length - 1; i > 0; i--) {
               const prevX = parseInt(tailBlocks[i - 1].style.left, 10);
               const prevY = parseInt(tailBlocks[i - 1].style.top, 10);
@@ -449,11 +490,10 @@
         // Execute the appropriate function based on screen width
         if (screenWidth <= threshold) {
           onPhone();
-          console.log('phone');
+          console.log("phone");
         } else {
-          console.log('laptop');
+          console.log("laptop");
           onLaptop();
-          
         }
       }
 
@@ -463,33 +503,31 @@
       // Attach the function to the window resize event to update when the screen size changes
       window.addEventListener("resize", checkScreenSize);
     </script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Display the initial image
-        showImage("pic", "img/wizarding-world-portrait.png");
+        var words = ["Competitive programmer", "CS Student","Researcher", "Movie enthusiast", "Science enthusiast","Slytherin"];
+        var index = 1;
+        var dynamicText = document.getElementById("dynamicText");
 
-        // Toggle between the two images every 2 seconds
-        setInterval(function () {
-          toggleImage(
-            "pic",
-            "img/wizarding-world-portrait.png",
-            "img/mypic.jpg"
-          );
-        }, 3000);
+        function changeWord() {
+          dynamicText.textContent = words[index];
+          index = (index + 1) % words.length;
+          setTimeout(eraseWord, 500);
+        }
+
+        function eraseWord() {
+          var currentWord = dynamicText.textContent;
+          if (currentWord.length > 0) {
+            dynamicText.textContent = currentWord.slice(0, -1);
+            setTimeout(eraseWord, 100);
+          } else {
+            setTimeout(changeWord, 500);
+          }
+        }
+
+        setTimeout(changeWord, 1000);
       });
-
-      function showImage(imageId, imageUrl) {
-        var image = document.getElementById(imageId);
-        image.src = imageUrl;
-      }
-
-      function toggleImage(imageId, currentImageUrl, newImageUrl) {
-        var image = document.getElementById(imageId);
-        var nextImageUrl = image.src.endsWith(currentImageUrl)
-          ? newImageUrl
-          : currentImageUrl;
-        showImage(imageId, nextImageUrl);
-      }
     </script>
   </body>
 </html>

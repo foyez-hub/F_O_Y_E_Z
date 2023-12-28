@@ -16,11 +16,11 @@
 
         background-image: url(img/slytherin.jpg);
         background-size: cover;
-        /* background-position: center;  */
+
+        /*background-position: center;*/
         background-repeat: repeat;
         height: 95vh;
         font-size: 18px;
-
       }
 
       .wand-cursor {
@@ -754,10 +754,12 @@ function iconflip() {
 }
 
 const housePasswords = {
+
   gryffindor: 'gryffindor',
   slytherin: 'slytherin',
   ravenclaw: 'ravenclaw',
   hufflepuff: 'hufflepuff'
+
 };
   // Function to submit the entered password
   function submitPassword() {
@@ -772,13 +774,15 @@ const housePasswords = {
     closeModal('password-modal');
     openModal('room-modal');
   } else {
-    // Show warning message and hints in the input field itself
+  
     const passwordWarning = document.getElementById('password-warning');
     passwordWarning.textContent = 'Incorrect password. Hints: Name of the house';
+
   }
 }
 
 // Function to clear the warning when user starts typing
+
 function clearPasswordWarning() {
   const passwordWarning = document.getElementById('password-warning');
   passwordWarning.textContent = '';
