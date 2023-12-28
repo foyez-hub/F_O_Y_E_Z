@@ -20,7 +20,7 @@
         /*background-position: center;*/
         background-repeat: repeat;
         height: 95vh;
-        font-size: 18px;
+        font-size: 14px;
       }
 
       .wand-cursor {
@@ -126,13 +126,15 @@
         background: #1cc7d0;
       }
       .wrapper {
-        height: 350px;
+
+        height: 70%;
         width: 65%;
         position: relative;
         transform-style: preserve-3d;
         perspective: 1000px;
         margin-left: 33%;
         margin-top: 2%;
+
 
       }
       .wrapper .card {
@@ -318,7 +320,7 @@
       }
       @media screen and (max-width: 350px) {
         body {
-          font-size: 6px;
+          font-size: 11px;
         }
       }
     </style>
@@ -424,6 +426,37 @@
 
 }
 
+#passwordmodaldiv{
+  width:50%;
+  height:50%;
+  margin-top:3%;
+  border: 2px solid red;
+  border-radius:70px;    
+  float: left;    
+  text-align: center;
+  box-shadow: 0 0 10px rgb(249, 244, 244), 0 0 30px rgb(149, 149, 147), 0 0 30px rgb(188, 176, 176);
+
+}
+
+
+
+
+ @media only screen and (max-width: 350px) {
+       
+
+  #passwordmodaldiv{
+  width:90%;
+  height:60%;
+  margin-top:3%;
+  font-size: 9px;
+  padding: 10%;
+
+
+  }
+
+
+
+}
 
 
 .hogwarts-card:hover .wizardry-wrapper::before,
@@ -526,32 +559,32 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
           🖤 Ebony wood, 9 inches, Thestral tail hair core
         </button>
         <button
-          onclick="selectWand('Cherry wood, 11.5 inches, Veela hair core')"
+          onclick="selectWand(' 🍒 Cherry wood, 11.5 inches, Veela hair core')"
         >
           🍒 Cherry wood, 11.5 inches, Veela hair core
         </button>
         <button
-          onclick="selectWand('Oak wood, 10 inches, Thunderbird feather core')"
+          onclick="selectWand('🌳 Oak wood, 10 inches, Thunderbird feather core')"
         >
           🌳 Oak wood, 10 inches, Thunderbird feather core
         </button>
         <button
-          onclick="selectWand('Vine wood, 12.5 inches, Hippogriff feather core')"
+          onclick="selectWand('🌿 Vine wood, 12.5 inches, Hippogriff feather core')"
         >
           🌿 Vine wood, 12.5 inches, Hippogriff feather core
         </button>
         <button
-          onclick="selectWand('Alder wood, 9.5 inches, Basilisk horn core')"
+          onclick="selectWand(' 🌳Alder wood, 9.5 inches, Basilisk horn core')"
         >
           🌳 Alder wood, 9.5 inches, Basilisk horn core
         </button>
         <button
-          onclick="selectWand('Cypress wood, 11 inches, Phoenix tail feather core')"
+          onclick="selectWand('🌿 Cypress wood, 11 inches, Phoenix tail feather core')"
         >
           🌿 Cypress wood, 11 inches, Phoenix tail feather core
         </button>
         <button
-          onclick="selectWand('Mahogany wood, 10 inches, Kelpie hair core')"
+          onclick="selectWand('🌰 Mahogany wood, 10 inches, Kelpie hair core')"
         >
           🌰 Mahogany wood, 10 inches, Kelpie hair core
         </button>
@@ -643,15 +676,21 @@ height:100px;width:100px;"  class="fab fa-twitter" onclick="openModal('patronus-
         <div   id="password-modal" class="modal">
           <span class="close-btn" onclick="closeModal('password-modal')">&times;</span>
           <!-- <span  style="background-color: #1cc7d0; font-size: 10px;">Enter the password to enter the your house common room</label> -->
-            <div style="width:50%;height:50%;margin-top:3%;" id="youtube">
+            <div id="passwordmodaldiv">
 
-              <p id="passwordask"> Summon the bravery within: What's the password to Gryffindor's den? </p>	
+              <p id="passwordask"> Summon the bravery within: 
+          What's the password to Gryffindor's den? </p>	
               Password <input style="
                       box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
 
               " type="password" id="housePassword" /><br>
-              <button style="border:3px soild black;" onclick="submitPassword()">Enter</button>
-              <p id="password-warning" style="color: red;"></p>
+              <input type="button" value="Enter" style="
+              color: white;
+                box-shadow: 0 0 10px greenyellow, 0 0 10px greenyellow, 0 0 10px greenyellow;
+              background-color: #026502; border:3px soild white;" onclick="submitPassword()" >
+              <p id="password-warning"  style="
+
+              background-color: white;color: red;"></p>
 
              </div>
              <!-- <label for="housePassword">Password:</label> -->
@@ -720,9 +759,14 @@ height:30px;width:30px; margin-right:10%;"  class="fab fa-twitter" onclick="open
       </div>
     </div>
 
+    
     <script src="script/logout.js"></script>
+    <script src="script/isuser.js"></script>
 
     <script>
+  
+
+
     var music = document.getElementById("backgroundMusic");
     var housemusic=document.getElementById("backgroundMusic1");
     var lomues=document.getElementById("backgroundMusic2");
@@ -1001,6 +1045,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function onPhone() {
         profilewrapper.style.width = "85%";
         profilewrapper.style.height = "380px";
+
         document.getElementById('buttonContainer').style.marginLeft='-40%'
         // document.getElementById('youtube').style.width='100%';
         // document.getElementById('youtube').style.height='200';
@@ -1015,7 +1060,7 @@ document.addEventListener('DOMContentLoaded', function () {
         profilewrapper.style.marginLeft = "3%";
       }
       function onLaptop() {
-        profilewrapper.style.height = "350px";
+        profilewrapper.style.height = "435px";
         // document.getElementById('youtube').style.width='80%';
         // document.getElementById('youtube').style.height='800';
 

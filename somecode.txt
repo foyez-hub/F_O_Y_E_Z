@@ -1,0 +1,12 @@
+body {
+  font-size: 1.1rem;
+  background: var(--preview-bg);
+  font-family: var(--font);
+  color: var(--black);
+  /* background: url(https://img.freepik.com/free-photo/cardboard-sheet-paper-abstract-texture-background_7182-2105.jpg?size=626&ext=jpg)
+    repeat; */
+  padding: 4rem 2rem;
+  line-height: 1.3;
+  text-align: justify;
+  column-break-inside: avoid;
+} 

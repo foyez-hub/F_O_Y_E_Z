@@ -14,7 +14,7 @@
         font-family: "Harry Potter", sans-serif;
         /* min-height: 95vh; */
         height: 95vh;
-        font-size: 10px;
+        font-size: 14px;
 
         /* font-family: Arial, sans-serif; */
         /* margin: 20px;
@@ -47,13 +47,14 @@
         background-size: cover; /* You can also use 'contain' or specific dimensions */
         background-position: center; /* Optional: Center the image */
         width: 80%;
-        height: 85%;
+        height: 100%;
         margin-left: 10%;
-        margin-top: 2%;
+        margin-top: 5%;
         /* margin-top: 2%; */
         /* border: 2px solid rgb(145, 16, 16); */
         /* box-shadow: 0 4px 8px greenyellow; */
         border-radius: 10px;
+        /* background-color: #d51d54; */
       }
 
       #title {
@@ -117,7 +118,7 @@
       /* right side my pofile picture and name containar  */
 
       #profilepic {
-        width: 45%;
+        width: 50%;
         height: 100%;
         /* margin-bottom: 20%; */
         float: right;
@@ -125,13 +126,14 @@
         cursor: move;
         /* margin-top: 5%; */
         margin-right: 2%;
-        height: 100%;
+      
       }
 
       /* right side my pofile picture  */
 
       #pic {
-        width: 75%;
+
+        width: 70%;
         height: 100%;
         border: 1px solid white;
         border-radius: 10px;
@@ -139,7 +141,7 @@
         box-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow,
           0 0 30px greenyellow;
 
-        margin-top: 2%;
+        margin-top: 5%;
         /* box-shadow: 2px 2px 2px silver;  */
       }
 
@@ -165,8 +167,8 @@
       }
 
       .tail {
-        width: 25px;
-        height: 25px;
+        width: 0px;
+        height: 0px;
         position: absolute;
         border-radius: 50%;
 
@@ -194,6 +196,7 @@
       }
     </style>
     <style>
+      
       #dynamicText {
         display: inline-block;
         font-size: 36px;
@@ -211,9 +214,27 @@
       }
 
       @media only screen and (max-width: 350px) {
+        body {
+        font-family: "Harry Potter", sans-serif;
+        /* min-height: 95vh; */
+        height: 95vh;
+        font-size: 11px;
+
+        /* font-family: Arial, sans-serif; */
+        /* margin: 20px;
+        padding: 20px; */
+
+        background-image: url(img/slytherin.jpg);
+        background-size: cover;
+        /* background-position: center;  */
+        /* background-repeat: repeat; */
+        /* border: 2px solid red; */
+        /* height: 700px; */
+      }
+
         #dynamicText {
           display: inline-block;
-          font-size: 30px;
+          font-size: 25px;
           white-space: nowrap;
           overflow: hidden;
           border-right: 5px solid #333;
@@ -222,13 +243,14 @@
           position: relative;
           animation: floatText 3s infinite alternate ease-in-out;
           animation: magicalEffect 4s infinite alternate ease-in-out;
-          text-shadow: 0 4px 8px greenyellow;
+          /* text-shadow: 0 4px 8px greenyellow; */
           background-color: green;
           border-radius: 10px;
           padding: 5%;
           margin-top: 80%;
-          margin-left:25%;
+          margin-left:10%;
           border: 2px solid white;
+          
         }
 
         .profileimagediv {
